@@ -28,7 +28,7 @@
             </a>
         
             {{-- contact me --}}
-            <a href="" class="text-tiny-size bg-white/80 rounded-full px-2 py-1.5 hover:bg-gray-950/5">
+            <a href="" class="text-tiny-size bg-white/80 rounded-full px-2 py-1.5 hover:bg-gray-950/5 transition-colors duration-300">
                 <i>Contact Me</i> 
             </a>
         </nav>
