@@ -70,8 +70,8 @@
             </div>
         </div>
 
-        <div class="overflow-hidden max-w-md mx-auto ">
-            <img src="{{ asset('images/bg-remove.png') }}" class="w-full rounded-xl" alt="">
+        <div class="overflow-hidden max-w-sm mx-auto ">
+            <img src="{{ asset('images/bg-remove.png') }}" class="w-full rounded-xl" alt="Photo" />
         </div>
 
     </section>
