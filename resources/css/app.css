@@ -17,3 +17,7 @@
     --text-small-size: 0.875rem; /* 0.0625 px rate  =14px */
     --text-medium-size: 1.25rem;
 }
+@utility bg-dotted {
+    background-image: radial-gradient(circle, rgba(156, 238, 105, 1) 1px, transparent 1px);
+    background-size: 5px 5px;
+}
