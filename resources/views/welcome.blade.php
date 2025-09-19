@@ -28,7 +28,7 @@
                     <img src="{{ asset('images/logo.png')}}" class="h-8" alt="brand Logo" />
                 </a>
             
-                {{-- contact me --}}
+                {{-- footer --}}
                 <a href="#footer" class="text-tiny-size bg-white/80 rounded-full px-2 py-1.5 hover:bg-gray-950/5 transition-colors duration-300">
                     <i>Contact Me</i> 
                 </a>
