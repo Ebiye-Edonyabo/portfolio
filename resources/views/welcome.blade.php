@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Portfolio</title>
+        <title>Ebiye-Edonyabo</title>
 
          <!-- Favicon section -->
         <link rel="icon" type="image/png" href="/favicon.png" sizes="96x96" />
@@ -56,17 +56,13 @@
                 </div>
                 
 
-                <div class="mt-8 flex flex-wrap gap-4 sm:mt-10">
-                    <a href="#contact" class="flex items-center rounded-lg bg-primary-300 px-6 py-4 font-medium text-primary-500 transition hover:scale-110 hover:rotate-2">
-                        <span>Let's Build Something</span>
-                        
-                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
+                <div class="mt-8 flex flex-wrap items-center gap-4 sm:mt-10">
+                    <a href="#contact" class="rounded-lg bg-gray-950/10 font-medium text-primary-500">
+                        <span class="inline-block rounded-lg bg-primary-300 px-5 py-3 m-1 transition ease-in-out duration-400 hover:bg-transparent">Let's Build Something</span>
                     </a>
 
-                    <a href="#work" class="shadow-sm rounded-lg border border-gray-200 px-6 py-4 font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition hover:scale-110 hover:-rotate-2">
-                        View My Work
+                    <a href="#work" class="rounded-lg bg-gray-950/10 font-medium text-gray-700">
+                        <span class="inline-block bg-white/65 rounded-lg px-5 py-3 m-1 transition ease-in-out duration-400 hover:bg-transparent">View My Work</span> 
                     </a>
                 </div>
             </div>
