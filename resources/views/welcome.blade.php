@@ -72,6 +72,9 @@
             </div>
 
         </section>
+       
+        {{-- projects section --}}
+        <x-projects />
 
         {{-- footer --}}
         <footer id="footer" class="w-full text-center mx-auto px-4 sm:px-6 max-w-lg py-6 space-y-4">
