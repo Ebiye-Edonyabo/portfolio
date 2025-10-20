@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="scroll-smooth" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,7 +37,6 @@
 
         {{-- hero section--}}
         <section class="px-4 sm:px-6 py-16 sm:py-24 max-w-screen-xl mx-auto md:grid md:grid-cols-2 space-y-5">
-
             <div class="text-left">
                 
                 <div>
@@ -70,7 +69,6 @@
             <div class="overflow-hidden max-w-sm mx-auto ">
                 <img src="{{ asset('images/bg-remove.png') }}" class="w-full rounded-xl" alt="Photo" />
             </div>
-
         </section>
        
         {{-- projects section --}}

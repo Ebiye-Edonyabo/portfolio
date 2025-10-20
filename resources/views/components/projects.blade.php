@@ -21,13 +21,20 @@
                         {{-- Card 1 --}}
                         <div class="group flex flex-col gap-4 rounded-lg bg-white p-6 shadow-xl hover:shadow-primary-100/50 transition-all duration-300 hover:scale-105 hover:shadow-lg">
                             <div class="w-full aspect-video bg-cover bg-center rounded-lg" 
-                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBUAb_KIrJaZz980iEiykZPHFuGd55HtB_yd07tMRL8RF3WklDDlJLtZSXAiPwNxnv5ifKfLM019S5nY-3rHSd1FE1cuZxv5slWe_kXtvdyUJvaTJUrXxuWXwhEp8h4oQsQSaunPOBn1Z3-XnJ8fqb84Goul-V5XhUVACShxle1Nl6q8tCXaj4QQERXdDICiJIAr22Eoju-ulHkJgZciqGz9gvMWoeIBrjNhmOx3aCg6ft1lHknlDRlDD4c7jldJYTPpaifhD6pWMw");'>
+                                style='background-image: url("{{ asset('images/mothompson.png') }}");'>
                             </div>
                             <div class="flex flex-col">
-                                <h3 class="text-lg font-bold text-gray-900">Data-Driven Insights</h3>
+                                <h3 class="text-lg font-bold text-gray-900">Mo Thompson Consulting</h3>
                                 <p class="text-sm text-gray-600">
-                                    Gain actionable insights with our advanced analytics tools, providing real-time data visualization and reporting.
+                                    Consultancy Platform empowering SMEs and enterprises with expert financial advisory, strategic solutions, and digital transformation. Supports grant management, innovation strategy, and mentorship with a free tier.
                                 </p>
+                            </div>
+                            <div class="text-primary-500 flex justify-end">
+                                <a target="_blank" href="https://www.mothompsonconsult.com/" class="rounded-lg px-2 py-1 hover:bg-transparent bg-gray-950/5 transition-colors duration-300">
+                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                                    </svg>
+                                </a>
                             </div>
                         </div>
 
