@@ -14,6 +14,7 @@
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
         <script src="https://kit.fontawesome.com/b22f0a74ef.js" crossorigin="anonymous"></script>
 
+
         <!-- Styles / Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
@@ -36,7 +37,7 @@
         </header>
 
         {{-- hero section--}}
-        <section class="px-4 sm:px-6 py-16 sm:py-24 max-w-screen-xl mx-auto md:grid md:grid-cols-2 space-y-5">
+        <section class="px-4 sm:px-6 py-16 sm:py-16 max-w-screen-xl mx-auto md:grid md:grid-cols-2 space-y-5">
             <div class="text-left">
                 
                 <div>
@@ -53,17 +54,19 @@
                         web applications using modern technologies. With a focus on clean code and intuitive design.
                     </p>
                 </div>
-                
 
-                <div class="mt-8 flex flex-wrap items-center gap-4 sm:mt-10">
-                    <a href="#contact" class="rounded-lg bg-gray-950/10 font-medium text-primary-500">
-                        <span class="inline-block rounded-lg bg-primary-300 px-5 py-3 m-1 transition ease-in-out duration-400 hover:bg-transparent">Let's Build Something</span>
-                    </a>
-
-                    <a href="#work" class="rounded-lg bg-gray-950/10 font-medium text-gray-700">
-                        <span class="inline-block bg-white/65 rounded-lg px-5 py-3 m-1 transition ease-in-out duration-400 hover:bg-transparent">View My Work</span> 
-                    </a>
+                <div class="mt-8 sm:mt-10">
+                    <div class="flex items-center gap-3 rounded-full bg-white px-5 py-3 backdrop-blur-md shadow-sm border  border-primary-100 w-fit">
+                        <span class="relative flex h-3 w-3">
+                        <span class="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping"></span>
+                        <span class="relative inline-flex h-3 w-3 rounded-full bg-green-500"></span>
+                        </span>
+                        <span class="text-sm sm:text-base font-medium text-gray-800">
+                        Available for new projects
+                        </span>
+                    </div>
                 </div>
+
             </div>
 
             <div class="overflow-hidden max-w-sm mx-auto ">
@@ -73,6 +76,11 @@
        
         {{-- projects section --}}
         <x-projects />
+
+        {{-- projects section --}}
+        {{-- <x-skills /> --}}
+
+        <x-experience />
 
         {{-- footer --}}
         <footer id="footer" class="w-full text-center mx-auto px-4 sm:px-6 max-w-lg py-6 space-y-4">
