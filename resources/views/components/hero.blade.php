@@ -1,21 +1,23 @@
 <section class="px-4 sm:px-6 py-16 sm:py-16 max-w-screen-xl mx-auto md:grid md:grid-cols-2 space-y-5 bg-dotted">
     <div class="text-left">
         <div>
-        <!-- Subheading -->
-        <h5 class="text-lg font-medium text-gray-300 mb-3 md:mb-0">Hello there! 👋 I'm Ebiye</h5>
+            <!-- Subheading -->
+            <h5 class="text-lg font-medium text-gray-300 mb-3 md:mb-0">Hello there! 👋 I'm<strong> Ebiye</strong></h5>
 
-        <!-- Main Heading -->
-        <h1 class="text-4xl font-bold text-white sm:text-5xl">
-            <span class="text-primary-300 font-bold">Full-Stack</span> Web Developer
-        </h1>
+            <!-- Main Heading -->
+            <h1 class="text-4xl font-bold text-white sm:text-5xl">
+                <span class="text-primary-300 font-bold">Full-Stack</span> Web Developer
+            </h1>
 
-        <!-- Description -->
-        <p class="mt-6 text-lg text-gray-200 sm:text-xl/relaxed">
-            I specialize in building
-            <strong class="font-medium text-white">secure</strong>,
-            <strong class="font-medium text-white">scalable</strong>
-            web applications using modern technologies. With a focus on clean code and intuitive design.
-        </p>
+            <!-- Description -->
+            <p class="mt-6 text-lg text-gray-200 sm:text-xl/relaxed">
+                A software engineer with <strong class="font-medium text-white">2+ years</strong> 
+                of experiencein PHP and JavaScript, with expertise in modern frameworks such as
+                <strong class="font-medium text-white">Laravel</strong>, 
+                <strong class="font-medium text-white">Vue</strong>, and 
+                <strong class="font-medium text-white">Livewire</strong>.
+            </p>
+         
         </div>
 
         <!-- Availability Badge -->
