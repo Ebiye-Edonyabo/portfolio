@@ -12,7 +12,7 @@
             <!-- Description -->
             <p class="mt-6 text-lg text-gray-200 sm:text-xl/relaxed">
                 A software engineer with <strong class="font-medium text-white">2+ years</strong> 
-                of experiencein PHP and JavaScript, with expertise in modern frameworks such as
+                experience in PHP and JavaScript, with expertise in modern frameworks such as
                 <strong class="font-medium text-white">Laravel</strong>, 
                 <strong class="font-medium text-white">Vue</strong>, and 
                 <strong class="font-medium text-white">Livewire</strong>.
