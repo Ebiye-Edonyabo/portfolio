@@ -21,61 +21,15 @@
     <body class="bg-dotted">
      
         {{-- header --}}
-        <header class="sticky z-50 top-3 px-2">
-            <nav class="px-4 sm:px-6 py-1.5 max-w-screen-xl mx-auto flex justify-between items-center bg-gray-950/10 rounded-[10px]">
-
-                {{-- logo --}}
-                <a href="{{ url('/')}}">
-                    <img src="{{ asset('images/logo.png')}}" class="h-8" alt="brand Logo" />
-                </a>
-            
-                {{-- footer --}}
-                <a href="#footer" class="text-tiny-size bg-white/80 rounded-full px-2 py-1.5 hover:bg-gray-950/5 transition-colors duration-300">
-                    <i>Contact Me</i> 
-                </a>
-            </nav>
-        </header>
+        <x-header />
 
         {{-- hero section--}}
-        <section class="px-4 sm:px-6 py-16 sm:py-16 max-w-screen-xl mx-auto md:grid md:grid-cols-2 space-y-5">
-            <div class="text-left">
-                
-                <div>
-                    <h5 class="text-lg font-medium text-gray-600 mb-3 md:mb-0">Hello there! 👋 I'm Ebiye</h5>
+        <x-hero />
 
-                    <h1 class="text-4xl font-bold text-gray-900 sm:text-5xl">
-                        <span class="text-primary-300">Full-Stack</span> Web Developer
-                    </h1>
-
-                    <p class="mt-6 text-lg text-gray-700 sm:text-xl/relaxed">
-                        I specialize in building 
-                        <strong class="font-medium">secure</strong>, 
-                        <strong class="font-medium">scalable</strong> 
-                        web applications using modern technologies. With a focus on clean code and intuitive design.
-                    </p>
-                </div>
-
-                <div class="mt-8 sm:mt-10">
-                    <div class="flex items-center gap-3 rounded-full bg-white px-5 py-3 backdrop-blur-md shadow-sm border  border-primary-100 w-fit">
-                        <span class="relative flex h-3 w-3">
-                        <span class="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping"></span>
-                        <span class="relative inline-flex h-3 w-3 rounded-full bg-green-500"></span>
-                        </span>
-                        <span class="text-sm sm:text-base font-medium text-gray-800">
-                        Available for new projects
-                        </span>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="overflow-hidden max-w-sm mx-auto ">
-                <img src="{{ asset('images/bg-remove.png') }}" class="w-full rounded-xl" alt="Photo" />
-            </div>
-        </section>
-       
         {{-- projects section --}}
         <x-projects />
+
+      
 
         {{-- projects section --}}
         {{-- <x-skills /> --}}
@@ -83,32 +37,35 @@
         <x-experience />
 
         {{-- footer --}}
-        <footer id="footer" class="w-full text-center mx-auto px-4 sm:px-6 max-w-lg py-6 space-y-4">
-            <div class="space-x-4">
-                <a href="https://wa.me/+2348130873408" target="_blank">
-                    <i class="fa-brands fa-whatsapp text-primary-500 size-6"></i>
-                </a>
-                <a href="https://github.com/Ebiye-Edonyabo">
-                    <i class="fa-brands fa-github text-primary-500 size-6"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/ebiye-edonyabo">
-                    <i class="fa-brands fa-linkedin-in text-primary-500 size-6"></i>
-                </a>
-                <a>
-                    <i class="fa-brands fa-facebook text-primary-500 size-6"></i>
-                </a>
-            </div>
+        <footer id="footer" class="bg-gray-500/10 ">
+            <section class="w-full text-center mx-auto px-4 sm:px-6 max-w-lg py-6 space-y-4">
+                <div class="space-x-4">
+                    <a href="https://wa.me/+2348130873408" target="_blank">
+                        <i class="fa-brands fa-whatsapp text-primary-300/90 size-6"></i>
+                    </a>
+                    <a href="https://github.com/Ebiye-Edonyabo">
+                        <i class="fa-brands fa-github text-primary-300/90 size-6"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ebiye-edonyabo">
+                        <i class="fa-brands fa-linkedin-in text-primary-300/90 size-6"></i>
+                    </a>
+                    <a>
+                        <i class="fa-brands fa-facebook text-primary-300/90 size-6"></i>
+                    </a>
+                </div>
 
-            <div class="space-x-4 flex flex-wrap justify-center">
-                <span>
-                    <i class="fa-solid fa-phone text-primary-500 size-6"></i>
-                    <span>+2348130873408</span>
-                </span>
-                <span>
-                    <i class="fa-solid fa-envelope text-primary-500 size-6"></i>
-                    <span>edonyaboebiye11@gmail.com</span>
-                </span>
-            </div>
+                <div class="space-x-4 flex flex-wrap justify-center">
+                    <span>
+                        <i class="fa-solid fa-phone text-primary-300/90 size-6"></i>
+                        <span class="text-white/90">+2348130873408</span>
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-envelope text-primary-300/90 size-6"></i>
+                        <span class="text-white/90">edonyaboebiye11@gmail.com</span>
+                    </span>
+                </div>
+            </section>
+          
         </footer>
     </body>
 </html>
