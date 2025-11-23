@@ -1,0 +1,1 @@
+<span class="inline-block mb-2 text-xs font-medium px-2.5 py-1 rounded-full bg-gray-900/70 text-primary-300/90 border border-primary-500/20"><strong>{{ $slot }}</strong></span>
