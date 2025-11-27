@@ -4,7 +4,7 @@
     </label>
 
     <textarea 
-        name="{{ $model }}"  
+        wire:model="{{ $model }}"  
         id="{{ $model }}" 
         rows="6" 
         placeholder="{{ $placeholder ?? '' }}"

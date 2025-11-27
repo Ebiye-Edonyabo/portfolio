@@ -17,6 +17,7 @@
 
         <!-- Styles / Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+         @livewireStyles
     </head>
     <body class="bg-dotted">
      
@@ -28,6 +29,8 @@
 
         {{-- header --}}
         <x-header />
+
+        <x-notification />
 
         {{-- hero section--}}
         <x-hero />
@@ -80,68 +83,12 @@
                         </div>
                     </div>
 
-       
-                    <form method="POST" action="/contact" class="space-y-4 rounded-lg w-full bg-gray-500/10 border border-gray-500/30 p-6">
-                          @csrf
-                        <x-text-input 
-                            label="Name" 
-                            model="name" 
-                            placeholder="Enter your name"
-                        />
+                   <livewire:contact-form />
 
-                        <x-text-input 
-                            label="Email" 
-                            model="email" 
-                            type="email" 
-                            placeholder="Enter your email"
-                        />
-
-                        <x-textarea-input 
-                            label="Message" 
-                            model="message"
-                            placeholder="Your message"
-                        />
-
-                        <button 
-                            class="block w-full rounded-lg border border-primary-300/90 bg-primary-300/90 px-12 py-3 text-sm font-medium text-black transition-colors hover:bg-transparent hover:text-primary-300/90 " 
-                            type="submit">
-                            Send Message
-                        </button>
-                    </form>
                 </div>
             </div>
         </section>
 
-        {{-- <footer id="footer" class="bg-gray-500/10 ">
-            <section class="w-full text-center mx-auto px-4 sm:px-6 max-w-lg py-6 space-y-4">
-                <div class="space-x-4">
-                    <a href="https://wa.me/+2348130873408" target="_blank">
-                        <i class="fa-brands fa-whatsapp text-primary-300/90 size-6"></i>
-                    </a>
-                    <a href="https://github.com/Ebiye-Edonyabo">
-                        <i class="fa-brands fa-github text-primary-300/90 size-6"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/ebiye-edonyabo">
-                        <i class="fa-brands fa-linkedin-in text-primary-300/90 size-6"></i>
-                    </a>
-                    <a>
-                        <i class="fa-brands fa-facebook text-primary-300/90 size-6"></i>
-                    </a>
-                </div>
-
-                <div class="space-x-4 flex flex-wrap justify-center">
-                    <span>
-                        <i class="fa-solid fa-phone text-primary-300/90 size-6"></i>
-                        <span class="text-white/90">+2348130873408</span>
-                    </span>
-                    <span>
-                        <i class="fa-solid fa-envelope text-primary-300/90 size-6"></i>
-                        <span class="text-white/90">edonyaboebiye11@gmail.com</span>
-                    </span>
-                </div>
-            </section>
-          
-        </footer> --}}
         <footer id="footer" class="bg-gray-500/10 w-full">
             <section class="w-full mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 text-center">
                 <h4 class="font-extrabold xl:text-8xl lg:text-7xl text-5xl md:text-6xl text-primary-500 tracking-wide w-full block">
@@ -150,6 +97,6 @@
             </section>
         </footer>
  
-        
+        @livewireScripts
     </body>
 </html>

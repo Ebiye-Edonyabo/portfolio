@@ -4,7 +4,7 @@
     </label>
 
     <input 
-        name="{{ $model }}" 
+        wire:model="{{ $model }}" 
         type="{{ $type ?? 'text' }}" 
         id="{{ $model }}" 
         placeholder="{{ $placeholder ?? '' }}"
