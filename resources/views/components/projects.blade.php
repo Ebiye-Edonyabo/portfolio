@@ -12,22 +12,33 @@
 
                             {{-- Card 1 --}}
                             <x-project-card 
-                                image="images/allsyntax.png"
-                                title="AllSyntax"
-                                stack="TALL"
-                                route="https://allsyntax.gygital.com/"
+                                image="images/mothompson.png"
+                                title="Mo Thompson Consulting"
+                                route="https://mothompsonconsult.com/"
                                 >
-                    
-                                A modern training platform for aspiring software engineers, showcasing web and mobile development programs with mentorship and real-world projects.
+                                 <x-slot:technologies>
+                                    <x-tag>Laravel</x-tag>
+                                    <x-tag>Livewire</x-tag>
+                                    <x-tag>Alpine</x-tag>
+                                    <x-tag>Tailwind</x-tag>
+                                </x-slot:technologies>
+
+                                Consultancy platform empowering SMEs and enterprises with expert financial advisory, strategic solutions, and digital transformation. Supports grant management, innovation strategy, and mentorship with a free tier.
                             </x-project-card>
 
                             {{-- Card 2 --}}
                             <x-project-card 
                                 image="images/gracevillp.png"
                                 title="Graceville Group of Schools"
-                                stack="VILT"
                                 route="https://gracevilleschools.org/"
                                 >
+
+                                <x-slot:technologies>
+                                    <x-tag>Laravel</x-tag>
+                                    <x-tag>Vue</x-tag>
+                                    <x-tag>Inertia</x-tag>
+                                    <x-tag>Tailwind</x-tag>
+                                </x-slot:technologies>
                     
                                 A scalable multi-branch school management platform that streamlines academic and 
                                 administrative operations. Includes dynamic form creation, academic and financial management, 
@@ -36,13 +47,19 @@
 
                             {{-- Card 3 --}}
                             <x-project-card 
-                                image="images/mothompson.png"
-                                title="Mo Thompson Consulting"
-                                stack="TALL"
-                                route="https://mothompsonconsult.com/"
+                                image="images/allsyntax.png"
+                                title="AllSyntax"
+                                route="https://allsyntax.gygital.com/"
                                 >
                                 
-                                Consultancy platform empowering SMEs and enterprises with expert financial advisory, strategic solutions, and digital transformation. Supports grant management, innovation strategy, and mentorship with a free tier.
+                                <x-slot:technologies>
+                                    <x-tag>Laravel</x-tag>
+                                    <x-tag>Livewire</x-tag>
+                                    <x-tag>Alpine</x-tag>
+                                    <x-tag>Tailwind</x-tag>
+                                </x-slot:technologies>
+
+                                A modern training platform for aspiring software engineers, showcasing web and mobile development programs with mentorship and real-world projects.
                             </x-project-card>
                       
 
@@ -50,19 +67,30 @@
                             <x-project-card 
                                 image="images/atriom.png"
                                 title="Atriom Technologies"
-                                stack="TALL"
                                 route="https://atriomtechnologies.com/"
                                 >
-                    
+
+                                <x-slot:technologies>
+                                    <x-tag>Laravel</x-tag>
+                                    <x-tag>Livewire</x-tag>
+                                    <x-tag>Alpine</x-tag>
+                                    <x-tag>Tailwind</x-tag>
+                                </x-slot:technologies>
+
                                 A startup ecosystem enabler that collaborates with founders to build data-driven, innovative solutions — supporting entrepreneurs across Africa with mentorship, digital tools, and technology platforms.
                             </x-project-card>
 
                             <x-project-card 
                                 image="images/smartwear.png"
                                 title="SmartWear"
-                                stack="PHP, CSS & HTML"
                                 route="https://smartwear.vercel.app/"
                             >
+                                <x-slot:technologies>
+                                    <x-tag>PHP</x-tag>
+                                    <x-tag>HTML</x-tag>
+                                    <x-tag>CSS</x-tag>
+                                </x-slot:technologies>
+
                                 A static e-commerce platform built during my six-month web development program at Rolof Academy in 2023. This was my first website project.
                             </x-project-card>
 

@@ -8,7 +8,7 @@
         </span>
    </div>
 
-  <div class="grid md:grid-cols-2 border border-primary-500 my-10">
+  <div class="grid md:grid-cols-2 my-10 bg-gray-500/10 border border-gray-500/30 rounded-lg">
 
    {{-- Salient --}}
     <x-experience-card 
@@ -31,17 +31,17 @@
 
 
         <x-slot:projects>
-          <x-key-projects-card route="https://www.agopay.africa/">Agopay</x-key-projects-card>
-          <x-key-projects-card route="https://agogo-africa.com/">Agogo</x-key-projects-card>
+          <x-tag route="https://www.agopay.africa/">Agopay</x-tag>
+          <x-tag route="https://agogo-africa.com/">Agogo</x-tag>
         </x-slot:projects>
 
         <x-slot:technologies>
-          <x-key-technologies-card >Insomnia</x-key-technologies-card>
-          <x-key-technologies-card >PHP</x-key-technologies-card>
-          <x-key-technologies-card >Laravel</x-key-technologies-card>
-          <x-key-technologies-card >MySQL</x-key-technologies-card>
-          <x-key-technologies-card >QOREID API</x-key-technologies-card>
-          <x-key-technologies-card >PayStack/FlutterWave API</x-key-technologies-card>
+          <x-tag>Insomnia</x-tag>
+          <x-tag>PHP</x-tag>
+          <x-tag>Laravel</x-tag>
+          <x-tag>MySQL</x-tag>
+          <x-tag>QOREID API</x-tag>
+          <x-tag>PayStack/FlutterWave API</x-tag>
         </x-slot:technologies>
 
     </x-experience-card>
@@ -54,22 +54,30 @@
       company="Gygital" 
       route="https://gygital.com/" 
       location="Asaba, Delta State"  
-      description=" Developed and deployed production-grade web applications with a focus on performance, 
-        scalability, and user experience. Collaborated with the team lead to deliver full-stack 
-        solutions using modern frameworks and best practices, while mentoring an intern in core 
-        web development technologies — HTML, CSS, Tailwind, JavaScript, and PHP. ">
+      description="Collaborated with the team lead to deliver full-stack 
+        solutions for company and clients using modern frameworks and best practices.">
 
-        <x-key-responsibility-card> Integrated Slack for real-time notifications. </x-key-responsibility-card>
-        <x-key-responsibility-card> Built an invitation system managed by agents. </x-key-responsibility-card>
-        <x-key-responsibility-card> Developed KYC (Know Your Customer) implementation for platform users. </x-key-responsibility-card>
-        <x-key-responsibility-card> Integrated third-party APIs for the payment and KYC systems. </x-key-responsibility-card>
-        <x-key-responsibility-card> Enabled multiple payment gateway integration to allow easy switching during downtimes.  </x-key-responsibility-card>
+        <x-key-responsibility-card> Built a software-engineering training platform.</x-key-responsibility-card>
+        <x-key-responsibility-card> Developed a startup-support and tech-solutions ecosystem platform. </x-key-responsibility-card>
+        <x-key-responsibility-card> Built a strategic consulting platform offering grant management, business registration, and digital-solution services. </x-key-responsibility-card>
+        <x-key-responsibility-card> Converted a multi-vendor e-commerce platform from separate Laravel backend and Vue frontend projects into a unified monolithic Laravel and Livewire application. </x-key-responsibility-card>
+        <x-key-responsibility-card> Integrated payment-system APIs for seamless online transactions. </x-key-responsibility-card>
 
         <x-slot:projects>
-          <x-key-projects-card route="https://allsyntax.gygital.com/">AllSyntax</x-key-projects-card>
-          <x-key-projects-card route="https://atriomtechnologies.com/">Atriom Technologies</x-key-projects-card>
-          <x-key-projects-card route="https://mothompsonconsult.com/">Mo Thompson Consulting</x-key-projects-card>
+          <x-tag route="https://britonkay.ng/">BritonKay</x-tag>
+          <x-tag route="https://allsyntax.gygital.com/">AllSyntax</x-tag>
+          <x-tag route="https://atriomtechnologies.com/">Atriom Technologies</x-tag>
+          <x-tag route="https://mothompsonconsult.com/">Mo Thompson Consulting</x-tag>
         </x-slot:projects>
+
+        <x-slot:technologies>
+          <x-tag>PHP</x-tag>
+          <x-tag>Laravel</x-tag>
+          <x-tag>Livewire</x-tag>
+          <x-tag>Blade</x-tag>
+          <x-tag>MySQL</x-tag>
+          <x-tag>PayStack</x-tag>
+        </x-slot:technologies>
 
     </x-experience-card>
     

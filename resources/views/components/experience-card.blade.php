@@ -1,4 +1,4 @@
-<div class="p-10 border-b md:border-b md:border-r border-primary-500">
+<div class="p-10 border-b md:border-b md:border-r border-gray-500/30">
     <p class="text-sm font-medium text-primary-300/90 mb-1">{{ $period }}</p>
     <h3 class="text-xl font-semibold text-white">{{ $role }}</h3>
     <p class="text-md text-gray-400 mb-3 flex items-center gap-1">
@@ -26,23 +26,25 @@
     <div class="space-y-2">
         {{-- Key Projects --}}
         <div>
-            @isset($projects)
-                <div class="mt-6 space-x-2">
-                    <h4 class="text-sm font-semibold text-white/90 mb-2 uppercase tracking-wide">Key Projects</h4>
+            <div class="mt-6">
+                <h4 class="text-sm font-semibold text-white/90 mb-2 uppercase tracking-wide">Key Projects</h4>
+                <div class="space-x-2 space-y-3">
                     {{ $projects }}
                 </div>
-            @endisset
+            </div>
         </div>
+   
 
         {{-- Technologies Used --}}
         <div>
-            @isset($technologies)
-                <div class="mt-6 space-x-2">
-                    <h4 class="text-sm font-semibold text-white/90 mb-2 uppercase tracking-wide">Technologies Used</h4>
+            <div class="mt-6">
+                <h4 class="text-sm font-semibold text-white/90 mb-2 uppercase tracking-wide">Technologies Used</h4>
+               <div class="space-x-2 space-y-3">
                     {{ $technologies }}
-                </div>
-            @endisset
+               </div>
+            </div>
         </div>
+      
     </div>
   
 
