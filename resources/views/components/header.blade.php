@@ -7,9 +7,6 @@
         </a>
 
         {{-- Contact Button --}}
-        {{-- <a href="#footer" class="text-tiny-size bg-white/10 text-primary-300/90 hover:bg-primary-300/5 hover:border hover:border-primary-500 hover:text-white rounded-full px-3 py-1.5 transition-colors duration-300">
-            <i>Contact Me</i> 
-        </a> --}}
          <div class="space-x-1">
             <a href="https://wa.me/+2348130873408" target="_blank">
                 <i class="fa-brands fa-whatsapp text-primary-300/90 size-6"></i>
@@ -20,9 +17,9 @@
             <a href="https://www.linkedin.com/in/ebiye-edonyabo">
                 <i class="fa-brands fa-linkedin-in text-primary-300/90 size-6"></i>
             </a>
-            <a>
+            {{-- <a>
                 <i class="fa-brands fa-facebook text-primary-300/90 size-6"></i>
-            </a>
+            </a> --}}
         </div>
     </nav>
 </header>

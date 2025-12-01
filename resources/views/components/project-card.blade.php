@@ -15,10 +15,7 @@
     </div>
     <div class="mt-4 text-xs">
         <a target="_blank" href="{{ $route }}" class="flex items-center gap-1 py-1.5 px-3 text-white hover:bg-primary-500/95 bg-primary-300/60 rounded-[4px] w-fit font-bold transition ease-in-out duration-200">
-            <strong>
-            <i class="fa-solid fa-up-right-from-square"></i> <span class="px-0.5">Live</span> 
-            </strong>
-            
+          <i class="fa-solid fa-up-right-from-square"></i> <span class="px-0.5">Live</span>
         </a>
     </div>
 </div>

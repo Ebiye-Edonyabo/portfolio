@@ -15,7 +15,7 @@
 
     {{-- Key Responsibilities --}}
     <div class="mt-4">
-    <h4 class="text-sm font-semibold text-white/90 mb-2 uppercase tracking-wide">Key Responsibilities</h4>
+    <h4 class="text-sm font-semibold text-white/90 mb-2 tracking-wide">Key Responsibilities</h4>
     <ul class="space-y-2 text-sm text-gray-600">
         
         {{ $slot }}
@@ -27,7 +27,7 @@
         {{-- Key Projects --}}
         <div>
             <div class="mt-6">
-                <h4 class="text-sm font-semibold text-white/90 mb-2 uppercase tracking-wide">Key Projects</h4>
+                <h4 class="text-sm font-semibold text-white/90 mb-2 tracking-wide">Key Projects</h4>
                 <div class="space-x-2 space-y-3">
                     {{ $projects }}
                 </div>
@@ -38,7 +38,7 @@
         {{-- Technologies Used --}}
         <div>
             <div class="mt-6">
-                <h4 class="text-sm font-semibold text-white/90 mb-2 uppercase tracking-wide">Technologies Used</h4>
+                <h4 class="text-sm font-semibold text-white/90 mb-2 tracking-wide">Technologies Used</h4>
                <div class="space-x-2 space-y-3">
                     {{ $technologies }}
                </div>
