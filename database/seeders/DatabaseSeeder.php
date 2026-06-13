@@ -2,9 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\Experience;
+use App\Models\Project;
+use App\Models\Setting;
+use App\Models\Tool;
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,10 +18,10 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // 1. Create Admin User
-        \App\Models\User::factory()->create([
+        User::factory()->create([
             'name' => 'Admin',
             'email' => 'admin@portfolio.test',
-            'password' => \Illuminate\Support\Facades\Hash::make('password'),
+            'password' => Hash::make('password'),
         ]);
 
         // 2. Seed Settings (Hero Config)
@@ -49,7 +53,7 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($settings as $setting) {
-            \App\Models\Setting::create($setting);
+            Setting::create($setting);
         }
 
         // 3. Seed Tools
@@ -67,7 +71,7 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($tools as $tool) {
-            \App\Models\Tool::create($tool);
+            Tool::create($tool);
         }
 
         // 4. Seed Projects
@@ -110,7 +114,7 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($projects as $project) {
-            \App\Models\Project::create($project);
+            Project::create($project);
         }
 
         // 5. Seed Experiences
@@ -152,7 +156,7 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($experiences as $experience) {
-            \App\Models\Experience::create($experience);
+            Experience::create($experience);
         }
     }
 }

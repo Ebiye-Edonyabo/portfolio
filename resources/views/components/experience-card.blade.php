@@ -1,3 +1,14 @@
+@props([
+    'period',
+    'role',
+    'route',
+    'company',
+    'location',
+    'description',
+    'projects' => null,
+    'technologies' => null,
+])
+
 <div class="p-10 border-b md:border-b md:border-r border-gray-500/30">
     <p class="text-sm font-medium text-primary-300/90 mb-1">{{ $period }}</p>
     <h3 class="text-xl font-semibold text-white">{{ $role }}</h3>
@@ -25,14 +36,17 @@
 
     <div class="space-y-2">
         {{-- Key Projects --}}
-        <div>
-            <div class="mt-6">
-                <h4 class="text-sm font-semibold text-white/90 mb-2 tracking-wide">Key Projects</h4>
-                <div class="space-x-2 space-y-3">
-                    {{ $projects }}
+        @if ($projects)
+            <div>
+                <div class="mt-6">
+                    <h4 class="text-sm font-semibold text-white/90 mb-2 tracking-wide">Key Projects</h4>
+                    <div class="space-x-2 space-y-3">
+                        {{ $projects }}
+                    </div>
                 </div>
             </div>
-        </div>
+        @endif
+
    
 
         {{-- Technologies Used --}}

@@ -1,0 +1,47 @@
+<?php
+
+namespace App\Livewire\Admin;
+
+use App\Livewire\Admin\Forms\ToolForm;
+use App\Models\Tool;
+use Illuminate\View\View;
+use Livewire\Attributes\Layout;
+use Livewire\Component;
+
+class Tools extends Component
+{
+    public ToolForm $form;
+
+    public function editTool(int $id): void
+    {
+        $tool = Tool::findOrFail($id);
+        $this->form->load($tool);
+    }
+
+    public function saveTool(): void
+    {
+        $this->form->save();
+
+        $this->dispatch('notification', message: 'Tool saved successfully!');
+        $this->resetFormStates();
+    }
+
+    public function deleteTool(int $id): void
+    {
+        Tool::findOrFail($id)->delete();
+        $this->dispatch('notification', message: 'Tool removed successfully!');
+    }
+
+    public function resetFormStates(): void
+    {
+        $this->form->reset();
+    }
+
+    #[Layout('components.layouts.admin', ['title' => 'CMS / Tools Manager'])]
+    public function render(): View
+    {
+        return view('livewire.admin.tools', [
+            'tools' => Tool::orderBy('order')->get(),
+        ]);
+    }
+}
