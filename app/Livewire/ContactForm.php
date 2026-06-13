@@ -2,27 +2,28 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
-use Livewire\Attributes\Validate;
 use App\Mail\ContactMail;
-use Illuminate\Support\Facades\Mail;
 use App\Models\Message;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\View\View;
+use Livewire\Attributes\Validate;
+use Livewire\Component;
 
 class ContactForm extends Component
 {
-    #[Validate('nullable|string')] 
+    #[Validate('nullable|string')]
     public $name;
 
-    #[Validate('required|email')] 
+    #[Validate('required|email')]
     public $email;
 
-    #[Validate('required|string')] 
+    #[Validate('required|string')]
     public $message;
 
-    public function save()
+    public function save(): mixed
     {
-        $form = $this->validate(); 
- 
+        $form = $this->validate();
+
         Message::create([
             'name' => $this->name,
             'email' => $this->email,
@@ -30,15 +31,15 @@ class ContactForm extends Component
         ]);
 
         Mail::to('edonyaboebiye11@gmail.com')->send(new ContactMail($form));
-        
+
         $this->dispatch(event: 'notification', message: 'Message sent successfully!');
 
         $this->reset();
-        
+
         return back();
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.contact-form');
     }
