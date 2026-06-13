@@ -15,6 +15,7 @@ class Experience extends Model
         'description',
         'responsibilities',
         'technologies',
+        'projects',
     ];
 
     protected function casts(): array
@@ -22,6 +23,7 @@ class Experience extends Model
         return [
             'responsibilities' => 'array',
             'technologies' => 'array',
+            'projects' => 'array',
         ];
     }
 }
