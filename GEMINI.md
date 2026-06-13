@@ -82,6 +82,8 @@ This application is a Laravel application and its main Laravel ecosystems packag
 ## PHP
 
 - Always use curly braces for control structures, even if it has one line.
+- **Class Imports:** Always import PHP classes using the `use` statement at the top of the file rather than using fully qualified class names inline (e.g., use `Message::create()` instead of `\App\Models\Message::create()`).
+- **Array Formatting:** When defining multi-item arrays for class properties (like Eloquent `$fillable` lists, array casts, or configuration arrays), always break the items into separate lines with a trailing comma on the last item rather than keeping them inline.
 
 ### Constructors
 - Use PHP 8 constructor property promotion in `__construct()`.
