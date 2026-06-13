@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\Attributes\Validate;
 use App\Mail\ContactMail;
 use Illuminate\Support\Facades\Mail;
+use App\Models\Message;
 
 class ContactForm extends Component
 {
@@ -22,6 +23,12 @@ class ContactForm extends Component
     {
         $form = $this->validate(); 
  
+        Message::create([
+            'name' => $this->name,
+            'email' => $this->email,
+            'message' => $this->message,
+        ]);
+
         Mail::to('edonyaboebiye11@gmail.com')->send(new ContactMail($form));
         
         $this->dispatch(event: 'notification', message: 'Message sent successfully!');
