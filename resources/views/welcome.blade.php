@@ -175,17 +175,11 @@
                                 <x-key-responsibility-card>{{ $resp }}</x-key-responsibility-card>
                             @endforeach
 
-                            @if ($ex->company === 'Salient Software Solutions')
+                            @if (!empty($ex->projects))
                                 <x-slot:projects>
-                                    <x-tag route="https://www.agopay.africa/">Agopay</x-tag>
-                                    <x-tag route="https://agogo-africa.com/">Agogo</x-tag>
-                                </x-slot:projects>
-                            @elseif ($ex->company === 'Gygital')
-                                <x-slot:projects>
-                                    <x-tag route="https://britonkay.ng/">BritonKay</x-tag>
-                                    <x-tag route="https://allsyntax.gygital.com/">AllSyntax</x-tag>
-                                    <x-tag route="https://atriomtechnologies.com/">Atriom Technologies</x-tag>
-                                    <x-tag route="https://mothompsonconsult.com/">Mo Thompson Consulting</x-tag>
+                                    @foreach ($ex->projects as $proj)
+                                        <x-tag route="{{ $proj['url'] }}">{{ $proj['name'] }}</x-tag>
+                                    @endforeach
                                 </x-slot:projects>
                             @endif
 

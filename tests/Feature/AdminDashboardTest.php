@@ -236,6 +236,12 @@ class AdminDashboardTest extends TestCase
             ->set('form.description', 'Lead backend team')
             ->set('form.responsibilities', "Design architecture.\nReview code.")
             ->set('form.technologies', 'Laravel, Go, Docker')
+            ->set('form.projects', [
+                [
+                    'name' => 'Project Alpha',
+                    'url' => 'https://alpha.test',
+                ],
+            ])
             ->call('saveExperience')
             ->assertDispatched('notification', message: 'Experience saved successfully!');
 
@@ -250,13 +256,31 @@ class AdminDashboardTest extends TestCase
         $exp = ExperienceModel::where('company', 'Tech Corp')->first();
         $this->assertEquals(['Design architecture.', 'Review code.'], $exp->responsibilities);
         $this->assertEquals(['Laravel', 'Go', 'Docker'], $exp->technologies);
+        $this->assertEquals([
+            [
+                'name' => 'Project Alpha',
+                'url' => 'https://alpha.test',
+            ],
+        ], $exp->projects);
 
         // 2. Edit Experience
         Livewire::actingAs($user)
             ->test(Experiences::class)
             ->call('editExperience', $exp->id)
             ->assertSet('form.role', 'Staff Engineer')
+            ->assertSet('form.projects', [
+                [
+                    'name' => 'Project Alpha',
+                    'url' => 'https://alpha.test',
+                ],
+            ])
             ->set('form.role', 'Principal Engineer')
+            ->set('form.projects', [
+                [
+                    'name' => 'Project Beta',
+                    'url' => 'https://beta.test',
+                ],
+            ])
             ->call('saveExperience')
             ->assertDispatched('notification', message: 'Experience saved successfully!');
 
@@ -265,7 +289,46 @@ class AdminDashboardTest extends TestCase
             'role' => 'Principal Engineer',
         ]);
 
-        // 3. Delete Experience
+        $exp->refresh();
+        $this->assertEquals([
+            [
+                'name' => 'Project Beta',
+                'url' => 'https://beta.test',
+            ],
+        ], $exp->projects);
+
+        // 3. Test dynamic project editing actions directly on the component
+        Livewire::actingAs($user)
+            ->test(Experiences::class)
+            ->call('addProject')
+            ->assertSet('form.projects', [
+                [
+                    'name' => '',
+                    'url' => '',
+                ],
+            ])
+            ->set('form.projects.0.name', 'Dynamic Project')
+            ->set('form.projects.0.url', 'https://dynamic.test')
+            ->call('addProject')
+            ->assertSet('form.projects', [
+                [
+                    'name' => 'Dynamic Project',
+                    'url' => 'https://dynamic.test',
+                ],
+                [
+                    'name' => '',
+                    'url' => '',
+                ],
+            ])
+            ->call('removeProject', 0)
+            ->assertSet('form.projects', [
+                [
+                    'name' => '',
+                    'url' => '',
+                ],
+            ]);
+
+        // 4. Delete Experience
         Livewire::actingAs($user)
             ->test(Experiences::class)
             ->call('deleteExperience', $exp->id)

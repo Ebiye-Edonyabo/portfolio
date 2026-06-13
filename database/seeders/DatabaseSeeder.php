@@ -136,6 +136,16 @@ class DatabaseSeeder extends Seeder
                     'Tutored interns on the basics of web development and backend technologies using PHP and Laravel.',
                 ],
                 'technologies' => ['Insomnia', 'PHP', 'Laravel', 'MySQL', 'QOREID API', 'PayStack/FlutterWave API'],
+                'projects' => [
+                    [
+                        'name' => 'Agopay',
+                        'url' => 'https://www.agopay.africa/',
+                    ],
+                    [
+                        'name' => 'Agogo',
+                        'url' => 'https://agogo-africa.com/',
+                    ],
+                ],
             ],
             [
                 'period' => 'Aug 2024 - Apr 2025',
@@ -152,6 +162,24 @@ class DatabaseSeeder extends Seeder
                     'Integrated payment-system APIs for seamless online transactions.',
                 ],
                 'technologies' => ['PHP', 'Laravel', 'Livewire', 'Blade', 'MySQL', 'PayStack'],
+                'projects' => [
+                    [
+                        'name' => 'BritonKay',
+                        'url' => 'https://britonkay.ng/',
+                    ],
+                    [
+                        'name' => 'AllSyntax',
+                        'url' => 'https://allsyntax.gygital.com/',
+                    ],
+                    [
+                        'name' => 'Atriom Technologies',
+                        'url' => 'https://atriomtechnologies.com/',
+                    ],
+                    [
+                        'name' => 'Mo Thompson Consulting',
+                        'url' => 'https://mothompsonconsult.com/',
+                    ],
+                ],
             ],
         ];
 

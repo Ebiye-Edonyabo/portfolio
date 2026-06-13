@@ -37,6 +37,16 @@ class Experiences extends Component
         $this->form->reset();
     }
 
+    public function addProject(): void
+    {
+        $this->form->addProject();
+    }
+
+    public function removeProject(int $index): void
+    {
+        $this->form->removeProject($index);
+    }
+
     #[Layout('components.layouts.admin', ['title' => 'CMS / Experience Timeline'])]
     public function render(): View
     {
