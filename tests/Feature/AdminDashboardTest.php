@@ -101,6 +101,7 @@ class AdminDashboardTest extends TestCase
             ->test(Hero::class)
             ->set('form.hello', 'New Hello Greeting')
             ->set('form.title', 'Architect')
+            ->set('form.image_path', 'images/custom-hero.png')
             ->set('form.description', 'Bio description text')
             ->set('form.available', 'false')
             ->call('saveHero')
@@ -117,6 +118,12 @@ class AdminDashboardTest extends TestCase
             'page' => 'home',
             'key' => 'title',
             'value' => 'Architect',
+        ]);
+        $this->assertDatabaseHas('settings', [
+            'group' => 'hero',
+            'page' => 'home',
+            'key' => 'image_path',
+            'value' => 'images/custom-hero.png',
         ]);
         $this->assertDatabaseHas('settings', [
             'group' => 'hero',

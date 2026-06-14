@@ -20,6 +20,9 @@ class HeroForm extends Form
     #[Validate('required|string')]
     public string $available = 'true';
 
+    #[Validate('required|string')]
+    public string $image_path = '';
+
     /**
      * Load settings from the database and populate properties.
      */
@@ -31,6 +34,7 @@ class HeroForm extends Form
         $this->title = $settings['title'] ?? '';
         $this->description = $settings['description'] ?? '';
         $this->available = $settings['available'] ?? 'true';
+        $this->image_path = $settings['image_path'] ?? 'images/bg-remove.png';
     }
 
     /**
@@ -44,5 +48,6 @@ class HeroForm extends Form
         Setting::updateOrCreate(['group' => 'hero', 'page' => 'home', 'key' => 'title'], ['value' => $this->title]);
         Setting::updateOrCreate(['group' => 'hero', 'page' => 'home', 'key' => 'description'], ['value' => $this->description]);
         Setting::updateOrCreate(['group' => 'hero', 'page' => 'home', 'key' => 'available'], ['value' => $this->available]);
+        Setting::updateOrCreate(['group' => 'hero', 'page' => 'home', 'key' => 'image_path'], ['value' => $this->image_path]);
     }
 }

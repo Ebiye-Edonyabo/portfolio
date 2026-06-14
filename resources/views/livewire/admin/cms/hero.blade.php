@@ -8,6 +8,9 @@
         <!-- Main Title -->
         <x-admin.text-input label="Main Heading Role" model="form.title" class="px-4 py-2.5 text-sm" />
 
+        <!-- Hero Image Path -->
+        <x-admin.text-input label="Hero Image Path" model="form.image_path" class="px-4 py-2.5 text-sm" placeholder="images/bg-remove.png" />
+
         <!-- Description Bio -->
         <x-admin.textarea-input label="Bio Description" model="form.description" class="px-4 py-2.5 text-sm" rows="4" />
 

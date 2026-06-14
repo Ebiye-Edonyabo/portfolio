@@ -51,6 +51,12 @@ class DatabaseSeeder extends Seeder
                 'key' => 'available',
                 'value' => 'true',
             ],
+            [
+                'group' => 'hero',
+                'page' => 'home',
+                'key' => 'image_path',
+                'value' => 'images/bg-remove.png',
+            ],
         ];
 
         foreach ($settings as $setting) {

@@ -51,7 +51,7 @@
 
         <!-- Image -->
         <div class="overflow-hidden max-w-sm mx-auto">
-            <img src="{{ asset('images/bg-remove.png') }}" class="w-full rounded-xl shadow-xl border border-lime-900/50" alt="Ebiye" />
+            <img src="{{ asset($settings['image_path'] ?? 'images/bg-remove.png') }}" class="w-full rounded-xl shadow-xl border border-lime-900/50" alt="Ebiye" />
         </div>
     </section>
 
