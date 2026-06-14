@@ -140,45 +140,47 @@
         <div class="px-6 py-4 border-b border-[#1f1f1f]">
             <h3 class="text-xs font-bold text-white tracking-wide uppercase">Experience Timeline Log</h3>
         </div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Role & Company</th>
-                    <th>Period</th>
-                    <th>Location</th>
-                    <th>Status</th>
-                    <th class="text-right">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @forelse ($experiences as $ex)
-                    <tr wire:key="exp-item-{{ $ex->id }}">
-                        <td class="font-semibold text-white">
-                            <div>{{ $ex->role }}</div>
-                            <div class="text-xs text-gray-400 font-medium mt-0.5">{{ $ex->company }}</div>
-                        </td>
-                        <td class="text-gray-300 text-xs">{{ $ex->period }}</td>
-                        <td class="text-gray-400 text-xs">{{ $ex->location }}</td>
-                        <td>
-                            <span class="px-2 py-0.5 rounded text-[10px] font-semibold {{ $ex->status->value === 'published' ? 'bg-[#1e2d0a] text-primary-300 border border-primary-500/20' : 'bg-gray-800 text-gray-400' }}">
-                                {{ ucfirst($ex->status->value) }}
-                            </span>
-                        </td>
-                        <td class="text-right space-x-2">
-                            <button wire:click="editExperience({{ $ex->id }})" class="text-primary-300 hover:text-primary-100 text-xs font-semibold transition-all cursor-pointer">
-                                Edit
-                            </button>
-                            <button wire:click="deleteExperience({{ $ex->id }})" wire:confirm="Are you sure?" class="text-red-400 hover:text-red-300 text-xs font-semibold transition-all cursor-pointer">
-                                Remove
-                            </button>
-                        </td>
-                    </tr>
-                @empty
+        <div class="overflow-x-auto">
+            <table class="table">
+                <thead>
                     <tr>
-                        <td colspan="5" class="text-center py-8 text-gray-500">No experience logs stored.</td>
+                        <th>Role & Company</th>
+                        <th>Period</th>
+                        <th>Location</th>
+                        <th>Status</th>
+                        <th class="text-right">Actions</th>
                     </tr>
-                @endforelse
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @forelse ($experiences as $ex)
+                        <tr wire:key="exp-item-{{ $ex->id }}">
+                            <td class="font-semibold text-white">
+                                <div>{{ $ex->role }}</div>
+                                <div class="text-xs text-gray-400 font-medium mt-0.5">{{ $ex->company }}</div>
+                            </td>
+                            <td class="text-gray-300 text-xs">{{ $ex->period }}</td>
+                            <td class="text-gray-400 text-xs">{{ $ex->location }}</td>
+                            <td>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-semibold {{ $ex->status->value === 'published' ? 'bg-[#1e2d0a] text-primary-300 border border-primary-500/20' : 'bg-gray-800 text-gray-400' }}">
+                                    {{ ucfirst($ex->status->value) }}
+                                </span>
+                            </td>
+                            <td class="text-right space-x-2">
+                                <button wire:click="editExperience({{ $ex->id }})" class="text-primary-300 hover:text-primary-100 text-xs font-semibold transition-all cursor-pointer">
+                                    Edit
+                                </button>
+                                <button wire:click="deleteExperience({{ $ex->id }})" wire:confirm="Are you sure?" class="text-red-400 hover:text-red-300 text-xs font-semibold transition-all cursor-pointer">
+                                    Remove
+                                </button>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="5" class="text-center py-8 text-gray-500">No experience logs stored.</td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

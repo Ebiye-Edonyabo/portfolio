@@ -73,54 +73,56 @@
         <div class="px-6 py-4 border-b border-[#1f1f1f]">
             <h3 class="text-xs font-bold text-white tracking-wide uppercase">Active Projects List</h3>
         </div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Thumbnail</th>
-                    <th>Title</th>
-                    <th>Stack Tags</th>
-                    <th>Status</th>
-                    <th class="text-right">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @forelse ($projects as $p)
-                    <tr wire:key="project-item-{{ $p->id }}">
-                        <td>
-                            @if($p->image_path)
-                                <img src="{{ asset($p->image_path) }}" alt="{{ $p->title }}" class="w-10 h-6 object-cover rounded border border-[#1f1f1f]">
-                            @else
-                                <span class="text-xs text-gray-600 font-mono">None</span>
-                            @endif
-                        </td>
-                        <td class="font-semibold text-white">{{ $p->title }}</td>
-                        <td>
-                            <div class="flex flex-wrap gap-1">
-                                @foreach ($p->technologies ?? [] as $tech)
-                                    <span class="badge badge--positive text-[9px]">{{ $tech }}</span>
-                                @endforeach
-                            </div>
-                        </td>
-                        <td>
-                            <span class="px-2 py-0.5 rounded text-[10px] font-semibold {{ $p->status->value === 'published' ? 'bg-[#1e2d0a] text-primary-300 border border-primary-500/20' : 'bg-gray-800 text-gray-400' }}">
-                                {{ ucfirst($p->status->value) }}
-                            </span>
-                        </td>
-                        <td class="text-right space-x-2">
-                            <button wire:click="editProject({{ $p->id }})" class="text-primary-300 hover:text-primary-100 text-xs font-semibold transition-all cursor-pointer">
-                                Edit
-                            </button>
-                            <button wire:click="deleteProject({{ $p->id }})" wire:confirm="Are you sure?" class="text-red-400 hover:text-red-300 text-xs font-semibold transition-all cursor-pointer">
-                                Remove
-                            </button>
-                        </td>
-                    </tr>
-                @empty
+        <div class="overflow-x-auto">
+            <table class="table">
+                <thead>
                     <tr>
-                        <td colspan="5" class="text-center py-8 text-gray-500">No projects published.</td>
+                        <th>Thumbnail</th>
+                        <th>Title</th>
+                        <th>Stack Tags</th>
+                        <th>Status</th>
+                        <th class="text-right">Actions</th>
                     </tr>
-                @endforelse
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @forelse ($projects as $p)
+                        <tr wire:key="project-item-{{ $p->id }}">
+                            <td>
+                                @if($p->image_path)
+                                    <img src="{{ asset($p->image_path) }}" alt="{{ $p->title }}" class="w-10 h-6 object-cover rounded border border-[#1f1f1f]">
+                                @else
+                                    <span class="text-xs text-gray-600 font-mono">None</span>
+                                @endif
+                            </td>
+                            <td class="font-semibold text-white">{{ $p->title }}</td>
+                            <td>
+                                <div class="flex flex-wrap gap-1">
+                                    @foreach ($p->technologies ?? [] as $tech)
+                                        <span class="badge badge--positive text-[9px]">{{ $tech }}</span>
+                                    @endforeach
+                                </div>
+                            </td>
+                            <td>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-semibold {{ $p->status->value === 'published' ? 'bg-[#1e2d0a] text-primary-300 border border-primary-500/20' : 'bg-gray-800 text-gray-400' }}">
+                                    {{ ucfirst($p->status->value) }}
+                                </span>
+                            </td>
+                            <td class="text-right space-x-2">
+                                <button wire:click="editProject({{ $p->id }})" class="text-primary-300 hover:text-primary-100 text-xs font-semibold transition-all cursor-pointer">
+                                    Edit
+                                </button>
+                                <button wire:click="deleteProject({{ $p->id }})" wire:confirm="Are you sure?" class="text-red-400 hover:text-red-300 text-xs font-semibold transition-all cursor-pointer">
+                                    Remove
+                                </button>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="5" class="text-center py-8 text-gray-500">No projects published.</td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

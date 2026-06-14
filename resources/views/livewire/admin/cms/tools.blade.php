@@ -61,46 +61,48 @@
         <div class="px-6 py-4 border-b border-[#1f1f1f]">
             <h3 class="text-xs font-bold text-white tracking-wide uppercase">Active Tools Grid</h3>
         </div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Logo</th>
-                    <th>Name</th>
-                    <th>Path</th>
-                    <th>Order</th>
-                    <th>Status</th>
-                    <th class="text-right">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @forelse ($tools as $t)
-                    <tr wire:key="tool-item-{{ $t->id }}">
-                        <td>
-                            <img src="{{ asset($t->logo_path) }}" alt="{{ $t->name }}" class="w-5 h-5 object-contain">
-                        </td>
-                        <td class="font-semibold text-white">{{ $t->name }}</td>
-                        <td class="text-gray-500 font-mono text-xs">{{ $t->logo_path }}</td>
-                        <td>{{ $t->order }}</td>
-                        <td>
-                            <span class="px-2 py-0.5 rounded text-[10px] font-semibold {{ $t->status->value === 'published' ? 'bg-[#1e2d0a] text-primary-300 border border-primary-500/20' : 'bg-gray-800 text-gray-400' }}">
-                                {{ ucfirst($t->status->value) }}
-                            </span>
-                        </td>
-                        <td class="text-right space-x-2">
-                            <button wire:click="editTool({{ $t->id }})" class="text-primary-300 hover:text-primary-100 text-xs font-semibold transition-all cursor-pointer">
-                                Edit
-                            </button>
-                            <button wire:click="deleteTool({{ $t->id }})" wire:confirm="Are you sure?" class="text-red-400 hover:text-red-300 text-xs font-semibold transition-all cursor-pointer">
-                                Remove
-                            </button>
-                        </td>
-                    </tr>
-                @empty
+        <div class="overflow-x-auto">
+            <table class="table">
+                <thead>
                     <tr>
-                        <td colspan="6" class="text-center py-8 text-gray-500">No tools cataloged yet.</td>
+                        <th>Logo</th>
+                        <th>Name</th>
+                        <th>Path</th>
+                        <th>Order</th>
+                        <th>Status</th>
+                        <th class="text-right">Actions</th>
                     </tr>
-                @endforelse
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @forelse ($tools as $t)
+                        <tr wire:key="tool-item-{{ $t->id }}">
+                            <td>
+                                <img src="{{ asset($t->logo_path) }}" alt="{{ $t->name }}" class="w-5 h-5 object-contain">
+                            </td>
+                            <td class="font-semibold text-white">{{ $t->name }}</td>
+                            <td class="text-gray-500 font-mono text-xs">{{ $t->logo_path }}</td>
+                            <td>{{ $t->order }}</td>
+                            <td>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-semibold {{ $t->status->value === 'published' ? 'bg-[#1e2d0a] text-primary-300 border border-primary-500/20' : 'bg-gray-800 text-gray-400' }}">
+                                    {{ ucfirst($t->status->value) }}
+                                </span>
+                            </td>
+                            <td class="text-right space-x-2">
+                                <button wire:click="editTool({{ $t->id }})" class="text-primary-300 hover:text-primary-100 text-xs font-semibold transition-all cursor-pointer">
+                                    Edit
+                                </button>
+                                <button wire:click="deleteTool({{ $t->id }})" wire:confirm="Are you sure?" class="text-red-400 hover:text-red-300 text-xs font-semibold transition-all cursor-pointer">
+                                    Remove
+                                </button>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="6" class="text-center py-8 text-gray-500">No tools cataloged yet.</td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
