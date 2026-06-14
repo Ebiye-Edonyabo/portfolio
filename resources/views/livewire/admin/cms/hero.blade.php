@@ -3,39 +3,19 @@
     
     <form wire:submit="saveHero" class="space-y-5">
         <!-- Hello Subheading -->
-        <div class="space-y-1.5">
-            <label class="text-xs font-semibold uppercase tracking-wider text-gray-400">Greeting Subtitle</label>
-            <input type="text" wire:model="form.hello" 
-                class="w-full bg-[#171717] border border-[#1f1f1f] text-white px-4 py-2.5 rounded-lg text-sm outline-none focus:border-primary-300 transition-all">
-            @error('form.hello') <span class="text-red-400 text-xs">{{ $message }}</span> @enderror
-        </div>
+        <x-admin.text-input label="Greeting Subtitle" model="form.hello" class="px-4 py-2.5 text-sm" />
 
         <!-- Main Title -->
-        <div class="space-y-1.5">
-            <label class="text-xs font-semibold uppercase tracking-wider text-gray-400">Main Heading Role</label>
-            <input type="text" wire:model="form.title" 
-                class="w-full bg-[#171717] border border-[#1f1f1f] text-white px-4 py-2.5 rounded-lg text-sm outline-none focus:border-primary-300 transition-all">
-            @error('form.title') <span class="text-red-400 text-xs">{{ $message }}</span> @enderror
-        </div>
+        <x-admin.text-input label="Main Heading Role" model="form.title" class="px-4 py-2.5 text-sm" />
 
         <!-- Description Bio -->
-        <div class="space-y-1.5">
-            <label class="text-xs font-semibold uppercase tracking-wider text-gray-400">Bio Description</label>
-            <textarea rows="4" wire:model="form.description" 
-                class="w-full bg-[#171717] border border-[#1f1f1f] text-white px-4 py-2.5 rounded-lg text-sm outline-none focus:border-primary-300 transition-all resize-none"></textarea>
-            @error('form.description') <span class="text-red-400 text-xs">{{ $message }}</span> @enderror
-        </div>
+        <x-admin.textarea-input label="Bio Description" model="form.description" class="px-4 py-2.5 text-sm" rows="4" />
 
         <!-- Availability Badge -->
-        <div class="space-y-1.5">
-            <label class="text-xs font-semibold uppercase tracking-wider text-gray-400">Availability Status</label>
-            <select wire:model="form.available" 
-                class="select w-full bg-[#171717] border border-[#1f1f1f] text-white px-4 py-2.5 rounded-lg text-sm outline-none focus:border-primary-300 transition-all">
-                <option value="true">Available (Green Glowing Dot)</option>
-                <option value="false">Unavailable / Busy</option>
-            </select>
-            @error('form.available') <span class="text-red-400 text-xs">{{ $message }}</span> @enderror
-        </div>
+        <x-admin.dropdown-input label="Availability Status" model="form.available" class="select px-4 py-2.5 text-sm">
+            <option value="true">Available (Green Glowing Dot)</option>
+            <option value="false">Unavailable / Busy</option>
+        </x-admin.dropdown-input>
 
         <!-- Action Submit -->
         <div class="pt-4 flex justify-end">

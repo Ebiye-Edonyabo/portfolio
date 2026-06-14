@@ -5,68 +5,21 @@
             {{ $form->id ? 'Edit Experience Log' : 'Add Experience' }}
         </h4>
         <form wire:submit="saveExperience" class="space-y-4">
-            <div class="space-y-1">
-                <label class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">Date Period</label>
-                <input type="text" wire:model="form.period" required
-                    class="w-full bg-[#171717] border border-[#1f1f1f] text-white px-3 py-2 rounded-lg text-xs outline-none focus:border-primary-300 transition-all"
-                    placeholder="Apr 2025 - Nov 2025">
-                @error('form.period') <span class="text-red-400 text-xs">{{ $message }}</span> @enderror
-            </div>
+            <x-admin.text-input label="Date Period" model="form.period" required placeholder="Apr 2025 - Nov 2025" />
 
-            <div class="space-y-1">
-                <label class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">Role Title</label>
-                <input type="text" wire:model="form.role" required
-                    class="w-full bg-[#171717] border border-[#1f1f1f] text-white px-3 py-2 rounded-lg text-xs outline-none focus:border-primary-300 transition-all"
-                    placeholder="Back-End Engineer">
-                @error('form.role') <span class="text-red-400 text-xs">{{ $message }}</span> @enderror
-            </div>
+            <x-admin.text-input label="Role Title" model="form.role" required placeholder="Back-End Engineer" />
 
-            <div class="space-y-1">
-                <label class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">Company Name</label>
-                <input type="text" wire:model="form.company" required
-                    class="w-full bg-[#171717] border border-[#1f1f1f] text-white px-3 py-2 rounded-lg text-xs outline-none focus:border-primary-300 transition-all"
-                    placeholder="Salient Software Solutions">
-                @error('form.company') <span class="text-red-400 text-xs">{{ $message }}</span> @enderror
-            </div>
+            <x-admin.text-input label="Company Name" model="form.company" required placeholder="Salient Software Solutions" />
 
-            <div class="space-y-1">
-                <label class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">Company Link URL</label>
-                <input type="url" wire:model="form.company_url" 
-                    class="w-full bg-[#171717] border border-[#1f1f1f] text-white px-3 py-2 rounded-lg text-xs outline-none focus:border-primary-300 transition-all"
-                    placeholder="https://salientsolutions.tech">
-                @error('form.company_url') <span class="text-red-400 text-xs">{{ $message }}</span> @enderror
-            </div>
+            <x-admin.text-input label="Company Link URL" model="form.company_url" type="url" placeholder="https://salientsolutions.tech" />
 
-            <div class="space-y-1">
-                <label class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">Location</label>
-                <input type="text" wire:model="form.location" required
-                    class="w-full bg-[#171717] border border-[#1f1f1f] text-white px-3 py-2 rounded-lg text-xs outline-none focus:border-primary-300 transition-all"
-                    placeholder="Asaba, Delta State">
-                @error('form.location') <span class="text-red-400 text-xs">{{ $message }}</span> @enderror
-            </div>
+            <x-admin.text-input label="Location" model="form.location" required placeholder="Asaba, Delta State" />
 
-            <div class="space-y-1">
-                <label class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">Overview Description</label>
-                <textarea rows="2" wire:model="form.description" 
-                    class="w-full bg-[#171717] border border-[#1f1f1f] text-white px-3 py-2 rounded-lg text-xs outline-none focus:border-primary-300 transition-all resize-none"></textarea>
-                @error('form.description') <span class="text-red-400 text-xs">{{ $message }}</span> @enderror
-            </div>
+            <x-admin.textarea-input label="Overview Description" model="form.description" rows="2" />
 
-            <div class="space-y-1">
-                <label class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">Key Responsibilities (One per line)</label>
-                <textarea rows="4" wire:model="form.responsibilities" 
-                    class="w-full bg-[#171717] border border-[#1f1f1f] text-white px-3 py-2 rounded-lg text-xs outline-none focus:border-primary-300 transition-all resize-none"
-                    placeholder="Integrated Slack notifications.&#10;Built invitations system."></textarea>
-                @error('form.responsibilities') <span class="text-red-400 text-xs">{{ $message }}</span> @enderror
-            </div>
+            <x-admin.textarea-input label="Key Responsibilities (One per line)" model="form.responsibilities" placeholder="Integrated Slack notifications.&#10;Built invitations system." />
 
-            <div class="space-y-1">
-                <label class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">Tech Stack Tags (Comma separated)</label>
-                <input type="text" wire:model="form.technologies" 
-                    class="w-full bg-[#171717] border border-[#1f1f1f] text-white px-3 py-2 rounded-lg text-xs outline-none focus:border-primary-300 transition-all"
-                    placeholder="PHP, Laravel, MySQL">
-                @error('form.technologies') <span class="text-red-400 text-xs">{{ $message }}</span> @enderror
-            </div>
+            <x-admin.text-input label="Tech Stack Tags (Comma separated)" model="form.technologies" placeholder="PHP, Laravel, MySQL" />
 
             <div class="space-y-2" x-data="{ 
                 projects: @entangle('form.projects'),
@@ -111,16 +64,11 @@
             </div>
 
             <!-- Status -->
-            <div class="space-y-1">
-                <label class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">Status</label>
-                <select wire:model="form.status" required
-                    class="w-full bg-[#171717] border border-[#1f1f1f] text-white px-3 py-2 rounded-lg text-xs outline-none focus:border-primary-300 transition-all">
-                    @foreach ($statusOptions as $option)
-                        <option value="{{ $option['value'] }}">{{ $option['label'] }}</option>
-                    @endforeach
-                </select>
-                @error('form.status') <span class="text-red-400 text-xs">{{ $message }}</span> @enderror
-            </div>
+            <x-admin.dropdown-input label="Status" model="form.status" required>
+                @foreach ($statusOptions as $option)
+                    <option value="{{ $option['value'] }}">{{ $option['label'] }}</option>
+                @endforeach
+            </x-admin.dropdown-input>
 
             <div class="flex justify-end gap-2 pt-2">
                 @if ($form->id)
@@ -136,51 +84,42 @@
     </div>
 
     <!-- Right: Listing -->
-    <div class="col-span-12 lg:col-span-8 table-container">
-        <div class="px-6 py-4 border-b border-[#1f1f1f]">
-            <h3 class="text-xs font-bold text-white tracking-wide uppercase">Experience Timeline Log</h3>
-        </div>
-        <div class="overflow-x-auto">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Role & Company</th>
-                        <th>Period</th>
-                        <th>Location</th>
-                        <th>Status</th>
-                        <th class="text-right">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse ($experiences as $ex)
-                        <tr wire:key="exp-item-{{ $ex->id }}">
-                            <td class="font-semibold text-white">
-                                <div>{{ $ex->role }}</div>
-                                <div class="text-xs text-gray-400 font-medium mt-0.5">{{ $ex->company }}</div>
-                            </td>
-                            <td class="text-gray-300 text-xs">{{ $ex->period }}</td>
-                            <td class="text-gray-400 text-xs">{{ $ex->location }}</td>
-                            <td>
-                                <span class="px-2 py-0.5 rounded text-[10px] font-semibold {{ $ex->status->value === 'published' ? 'bg-[#1e2d0a] text-primary-300 border border-primary-500/20' : 'bg-gray-800 text-gray-400' }}">
-                                    {{ ucfirst($ex->status->value) }}
-                                </span>
-                            </td>
-                            <td class="text-right space-x-2">
-                                <button wire:click="editExperience({{ $ex->id }})" class="text-primary-300 hover:text-primary-100 text-xs font-semibold transition-all cursor-pointer">
-                                    Edit
-                                </button>
-                                <button wire:click="deleteExperience({{ $ex->id }})" wire:confirm="Are you sure?" class="text-red-400 hover:text-red-300 text-xs font-semibold transition-all cursor-pointer">
-                                    Remove
-                                </button>
-                            </td>
-                        </tr>
-                    @empty
-                        <tr>
-                            <td colspan="5" class="text-center py-8 text-gray-500">No experience logs stored.</td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
-        </div>
-    </div>
+    <x-admin.table-card title="Experience Timeline Log" class="col-span-12 lg:col-span-8">
+        <thead>
+            <tr>
+                <th>Role & Company</th>
+                <th>Period</th>
+                <th>Location</th>
+                <th>Status</th>
+                <th class="text-right">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @forelse ($experiences as $ex)
+                <tr wire:key="exp-item-{{ $ex->id }}">
+                    <td class="font-semibold text-white">
+                        <div>{{ $ex->role }}</div>
+                        <div class="text-xs text-gray-400 font-medium mt-0.5">{{ $ex->company }}</div>
+                    </td>
+                    <td class="text-gray-300 text-xs">{{ $ex->period }}</td>
+                    <td class="text-gray-400 text-xs">{{ $ex->location }}</td>
+                    <td>
+                        <x-admin.status-badge :status="$ex->status" />
+                    </td>
+                    <td class="text-right space-x-2">
+                        <button wire:click="editExperience({{ $ex->id }})" class="text-primary-300 hover:text-primary-100 text-xs font-semibold transition-all cursor-pointer">
+                            Edit
+                        </button>
+                        <button wire:click="deleteExperience({{ $ex->id }})" wire:confirm="Are you sure?" class="text-red-400 hover:text-red-300 text-xs font-semibold transition-all cursor-pointer">
+                            Remove
+                        </button>
+                    </td>
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="5" class="text-center py-8 text-gray-500">No experience logs stored.</td>
+                </tr>
+            @endforelse
+        </tbody>
+    </x-admin.table-card>
 </div>

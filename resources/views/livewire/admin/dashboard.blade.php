@@ -44,38 +44,34 @@
     </div>
 
     <!-- Recent Messages log -->
-    <div class="table-container">
-        <div class="px-6 py-4 border-b border-[#1f1f1f] flex items-center justify-between">
-            <h3 class="text-sm font-bold text-white tracking-wide uppercase">Recent Inquiries</h3>
+    <x-admin.table-card title="Recent Inquiries">
+        <x-slot:actions>
             <a href="{{ route('admin.messages') }}" class="btn btn--secondary text-xs py-1 px-3">
                 Manage Logs
             </a>
-        </div>
-        <div class="overflow-x-auto">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Sender</th>
-                        <th>Email</th>
-                        <th>Message Payload</th>
-                        <th>Received At</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse ($latestMessages as $msg)
-                        <tr wire:key="msg-{{ $msg->id }}">
-                            <td class="font-semibold text-white">{{ $msg->name }}</td>
-                            <td>{{ $msg->email }}</td>
-                            <td class="text-gray-400">{{ Str::limit($msg->message, 80) }}</td>
-                            <td>{{ $msg->created_at->diffForHumans() }}</td>
-                        </tr>
-                    @empty
-                        <tr>
-                            <td colspan="4" class="text-center py-8 text-gray-500">No contact submissions found.</td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
-        </div>
-    </div>
+        </x-slot:actions>
+
+        <thead>
+            <tr>
+                <th>Sender</th>
+                <th>Email</th>
+                <th>Message Payload</th>
+                <th>Received At</th>
+            </tr>
+        </thead>
+        <tbody>
+            @forelse ($latestMessages as $msg)
+                <tr wire:key="msg-{{ $msg->id }}">
+                    <td class="font-semibold text-white">{{ $msg->name }}</td>
+                    <td>{{ $msg->email }}</td>
+                    <td class="text-gray-400">{{ Str::limit($msg->message, 80) }}</td>
+                    <td>{{ $msg->created_at->diffForHumans() }}</td>
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="4" class="text-center py-8 text-gray-500">No contact submissions found.</td>
+                </tr>
+            @endforelse
+        </tbody>
+    </x-admin.table-card>
 </div>
