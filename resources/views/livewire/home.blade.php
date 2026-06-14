@@ -64,10 +64,10 @@
                     <div class="flex items-center justify-start gap-3">
                         <div>
                             <div class="">
-                                <span class="flex items-center">
-                                    <span class="shrink-0 pe-4 text-white text-2xl font-bold"> Tools </span>
+                                <div class="flex items-center w-full">
+                                    <h2 class="shrink-0 pe-4 text-white text-2xl font-bold"> Tools </h2>
                                     <span class="h-px flex-1 bg-gradient-to-l from-transparent to-primary-500"></span>
-                                </span>
+                                </div>
                             </div>
                             <h3 class="font-medium text-sm text-white">
                                 Building cool systems with
@@ -91,10 +91,10 @@
     {{-- projects section --}}
     <main class="bg-gray-500/10 py-16">
         <section class="font-display text-gray-800 max-w-screen-xl mx-auto">
-            <span class="flex items-center px-4">
-                <span class="shrink-0 pe-4 text-white text-4xl font-bold"> Projects </span>
+            <div class="flex items-center px-4 w-full">
+                <h2 class="shrink-0 pe-4 text-white text-4xl font-bold"> Projects </h2>
                 <span class="h-px flex-1 bg-gradient-to-l from-transparent to-primary-500"></span>
-            </span>
+            </div>
             <div class="flex h-auto w-full flex-col">
                 <main class="flex-grow">
                     <section class="bg-background-light dark:bg-background-dark py-8 px-4">
@@ -125,10 +125,10 @@
     {{-- experience section --}}
     <section class="py-16">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="">
-                <span class="flex items-center ">
-                    <span class="shrink-0 px-4 text-white text-4xl font-bold">Experience</span>
-                </span>
+            <div class="flex items-center w-full">
+                <span class="h-px flex-1 bg-gradient-to-r from-transparent to-primary-500"></span>
+                <h2 class="shrink-0 px-4 text-white text-4xl font-bold">Experience</h2>
+                <span class="h-px flex-1 bg-gradient-to-l from-transparent to-primary-500"></span>
             </div>
 
             <div class="grid md:grid-cols-2 my-10 bg-gray-500/10 border border-gray-500/30 rounded-lg">
