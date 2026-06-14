@@ -68,35 +68,42 @@
                 @error('form.technologies') <span class="text-red-400 text-xs">{{ $message }}</span> @enderror
             </div>
 
-            <div class="space-y-2">
+            <div class="space-y-2" x-data="{ 
+                projects: @entangle('form.projects'),
+                errors: @js($errors->toArray())
+            }">
                 <label class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider block">Projects Built</label>
                 
                 <div class="space-y-2">
-                    @foreach ($form->projects as $index => $project)
-                        <div class="flex gap-2 items-center" wire:key="form-project-{{ $index }}">
+                    <template x-for="(project, index) in projects" :key="index">
+                        <div class="flex gap-2 items-center">
                             <div class="grow grid grid-cols-2 gap-2">
                                 <div>
-                                    <input type="text" wire:model="form.projects.{{ $index }}.name" required
+                                    <input type="text" x-model="project.name" required
                                         class="w-full bg-[#171717] border border-[#1f1f1f] text-white px-3 py-2 rounded-lg text-xs outline-none focus:border-primary-300 transition-all"
                                         placeholder="Project Name">
-                                    @error("form.projects.{$index}.name") <span class="text-red-400 text-[10px] block mt-0.5">{{ $message }}</span> @enderror
+                                    <template x-if="errors['form.projects.' + index + '.name']">
+                                        <span class="text-red-400 text-[10px] block mt-0.5" x-text="errors['form.projects.' + index + '.name'][0]"></span>
+                                    </template>
                                 </div>
                                 <div>
-                                    <input type="url" wire:model="form.projects.{{ $index }}.url" required
+                                    <input type="url" x-model="project.url" required
                                         class="w-full bg-[#171717] border border-[#1f1f1f] text-white px-3 py-2 rounded-lg text-xs outline-none focus:border-primary-300 transition-all"
                                         placeholder="Project URL">
-                                    @error("form.projects.{$index}.url") <span class="text-red-400 text-[10px] block mt-0.5">{{ $message }}</span> @enderror
+                                    <template x-if="errors['form.projects.' + index + '.url']">
+                                        <span class="text-red-400 text-[10px] block mt-0.5" x-text="errors['form.projects.' + index + '.url'][0]"></span>
+                                    </template>
                                 </div>
                             </div>
-                            <button type="button" wire:click="removeProject({{ $index }})" 
+                            <button type="button" @click="projects.splice(index, 1)" 
                                 class="text-red-400 hover:text-red-300 text-xs font-semibold p-2 cursor-pointer transition-all">
                                 ✕
                             </button>
                         </div>
-                    @endforeach
+                    </template>
                 </div>
 
-                <button type="button" wire:click="addProject" 
+                <button type="button" @click="projects.push({name: '', url: ''})" 
                     class="btn btn--secondary py-1.5 px-3 text-xs flex items-center gap-1 mt-1 cursor-pointer">
                     + Add Project
                 </button>

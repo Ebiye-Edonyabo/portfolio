@@ -312,34 +312,19 @@ class AdminDashboardTest extends TestCase
             ],
         ], $exp->projects);
 
-        // 3. Test dynamic project editing actions directly on the component
+        // 3. Test dynamic project editing actions directly on the component by setting projects array
         Livewire::actingAs($user)
             ->test(Experiences::class)
-            ->call('addProject')
-            ->assertSet('form.projects', [
-                [
-                    'name' => '',
-                    'url' => '',
-                ],
-            ])
-            ->set('form.projects.0.name', 'Dynamic Project')
-            ->set('form.projects.0.url', 'https://dynamic.test')
-            ->call('addProject')
-            ->assertSet('form.projects', [
+            ->set('form.projects', [
                 [
                     'name' => 'Dynamic Project',
                     'url' => 'https://dynamic.test',
                 ],
-                [
-                    'name' => '',
-                    'url' => '',
-                ],
             ])
-            ->call('removeProject', 0)
             ->assertSet('form.projects', [
                 [
-                    'name' => '',
-                    'url' => '',
+                    'name' => 'Dynamic Project',
+                    'url' => 'https://dynamic.test',
                 ],
             ]);
 

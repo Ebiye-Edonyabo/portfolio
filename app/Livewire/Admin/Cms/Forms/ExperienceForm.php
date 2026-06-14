@@ -88,24 +88,4 @@ class ExperienceForm extends Form
             ]
         );
     }
-
-    /**
-     * Add an empty project array structure to the list.
-     */
-    public function addProject(): void
-    {
-        $this->projects[] = [
-            'name' => '',
-            'url' => '',
-        ];
-    }
-
-    /**
-     * Remove a project index from the list.
-     */
-    public function removeProject(int $index): void
-    {
-        unset($this->projects[$index]);
-        $this->projects = array_values($this->projects);
-    }
 }
