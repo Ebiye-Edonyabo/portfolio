@@ -41,6 +41,9 @@ class ExperienceForm extends Form
     ])]
     public array $projects = [];
 
+    #[Validate('required|string|in:draft,published')]
+    public string $status = 'draft';
+
     /**
      * Load an existing experience into the form.
      */
@@ -56,6 +59,7 @@ class ExperienceForm extends Form
         $this->responsibilities = implode("\n", $experience->responsibilities ?? []);
         $this->technologies = implode(', ', $experience->technologies ?? []);
         $this->projects = $experience->projects ?? [];
+        $this->status = $experience->status->value;
     }
 
     /**
@@ -80,6 +84,7 @@ class ExperienceForm extends Form
                 'responsibilities' => $respArray,
                 'technologies' => $techArray,
                 'projects' => $this->projects,
+                'status' => $this->status,
             ]
         );
     }

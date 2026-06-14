@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('logo_path');
             $table->integer('order')->default(1);
+            $table->string('status')->default('draft');
             $table->timestamps();
         });
     }

@@ -136,6 +136,7 @@ class AdminDashboardTest extends TestCase
             ->set('form.name', 'React')
             ->set('form.logo_path', 'icons/react.svg')
             ->set('form.order', 11)
+            ->set('form.status', 'published')
             ->call('saveTool')
             ->assertDispatched('notification', message: 'Tool saved successfully!');
 
@@ -143,6 +144,7 @@ class AdminDashboardTest extends TestCase
             'name' => 'React',
             'logo_path' => 'icons/react.svg',
             'order' => 11,
+            'status' => 'published',
         ]);
 
         $tool = ToolModel::where('name', 'React')->first();
@@ -152,13 +154,16 @@ class AdminDashboardTest extends TestCase
             ->test(Tools::class)
             ->call('editTool', $tool->id)
             ->assertSet('form.name', 'React')
+            ->assertSet('form.status', 'published')
             ->set('form.name', 'React Native')
+            ->set('form.status', 'draft')
             ->call('saveTool')
             ->assertDispatched('notification', message: 'Tool saved successfully!');
 
         $this->assertDatabaseHas('tools', [
             'id' => $tool->id,
             'name' => 'React Native',
+            'status' => 'draft',
         ]);
 
         // 3. Delete Tool
@@ -184,6 +189,7 @@ class AdminDashboardTest extends TestCase
             ->set('form.image_path', 'images/new.png')
             ->set('form.route_url', 'https://newproject.com')
             ->set('form.technologies', 'PHP, Laravel, Livewire')
+            ->set('form.status', 'published')
             ->call('saveProject')
             ->assertDispatched('notification', message: 'Project saved successfully!');
 
@@ -192,6 +198,7 @@ class AdminDashboardTest extends TestCase
             'description' => 'Project description text',
             'image_path' => 'images/new.png',
             'route_url' => 'https://newproject.com',
+            'status' => 'published',
         ]);
 
         $project = ProjectModel::where('title', 'New Project')->first();
@@ -202,13 +209,16 @@ class AdminDashboardTest extends TestCase
             ->test(Projects::class)
             ->call('editProject', $project->id)
             ->assertSet('form.title', 'New Project')
+            ->assertSet('form.status', 'published')
             ->set('form.title', 'Updated Project')
+            ->set('form.status', 'draft')
             ->call('saveProject')
             ->assertDispatched('notification', message: 'Project saved successfully!');
 
         $this->assertDatabaseHas('projects', [
             'id' => $project->id,
             'title' => 'Updated Project',
+            'status' => 'draft',
         ]);
 
         // 3. Delete Project
@@ -242,6 +252,7 @@ class AdminDashboardTest extends TestCase
                     'url' => 'https://alpha.test',
                 ],
             ])
+            ->set('form.status', 'published')
             ->call('saveExperience')
             ->assertDispatched('notification', message: 'Experience saved successfully!');
 
@@ -251,6 +262,7 @@ class AdminDashboardTest extends TestCase
             'company' => 'Tech Corp',
             'location' => 'Lagos, Nigeria',
             'description' => 'Lead backend team',
+            'status' => 'published',
         ]);
 
         $exp = ExperienceModel::where('company', 'Tech Corp')->first();
@@ -268,6 +280,7 @@ class AdminDashboardTest extends TestCase
             ->test(Experiences::class)
             ->call('editExperience', $exp->id)
             ->assertSet('form.role', 'Staff Engineer')
+            ->assertSet('form.status', 'published')
             ->assertSet('form.projects', [
                 [
                     'name' => 'Project Alpha',
@@ -275,6 +288,7 @@ class AdminDashboardTest extends TestCase
                 ],
             ])
             ->set('form.role', 'Principal Engineer')
+            ->set('form.status', 'draft')
             ->set('form.projects', [
                 [
                     'name' => 'Project Beta',
@@ -287,6 +301,7 @@ class AdminDashboardTest extends TestCase
         $this->assertDatabaseHas('experiences', [
             'id' => $exp->id,
             'role' => 'Principal Engineer',
+            'status' => 'draft',
         ]);
 
         $exp->refresh();

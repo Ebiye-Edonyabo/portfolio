@@ -19,6 +19,9 @@ class ToolForm extends Form
     #[Validate('required|integer')]
     public int $order = 1;
 
+    #[Validate('required|string|in:draft,published')]
+    public string $status = 'draft';
+
     /**
      * Load an existing tool into the form.
      */
@@ -28,6 +31,7 @@ class ToolForm extends Form
         $this->name = $tool->name;
         $this->logo_path = $tool->logo_path;
         $this->order = $tool->order;
+        $this->status = $tool->status->value;
     }
 
     /**
@@ -43,6 +47,7 @@ class ToolForm extends Form
                 'name' => $this->name,
                 'logo_path' => $this->logo_path,
                 'order' => $this->order,
+                'status' => $this->status,
             ]
         );
     }

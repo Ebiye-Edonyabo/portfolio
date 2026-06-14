@@ -103,6 +103,18 @@
                 @error('form.projects') <span class="text-red-400 text-xs block mt-1">{{ $message }}</span> @enderror
             </div>
 
+            <!-- Status -->
+            <div class="space-y-1">
+                <label class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">Status</label>
+                <select wire:model="form.status" required
+                    class="w-full bg-[#171717] border border-[#1f1f1f] text-white px-3 py-2 rounded-lg text-xs outline-none focus:border-primary-300 transition-all">
+                    @foreach ($statusOptions as $option)
+                        <option value="{{ $option['value'] }}">{{ $option['label'] }}</option>
+                    @endforeach
+                </select>
+                @error('form.status') <span class="text-red-400 text-xs">{{ $message }}</span> @enderror
+            </div>
+
             <div class="flex justify-end gap-2 pt-2">
                 @if ($form->id)
                     <button type="button" wire:click="resetFormStates" class="btn btn--secondary py-1.5 px-4 text-xs cursor-pointer">
@@ -127,6 +139,7 @@
                     <th>Role & Company</th>
                     <th>Period</th>
                     <th>Location</th>
+                    <th>Status</th>
                     <th class="text-right">Actions</th>
                 </tr>
             </thead>
@@ -139,6 +152,11 @@
                         </td>
                         <td class="text-gray-300 text-xs">{{ $ex->period }}</td>
                         <td class="text-gray-400 text-xs">{{ $ex->location }}</td>
+                        <td>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-semibold {{ $ex->status->value === 'published' ? 'bg-[#1e2d0a] text-primary-300 border border-primary-500/20' : 'bg-gray-800 text-gray-400' }}">
+                                {{ ucfirst($ex->status->value) }}
+                            </span>
+                        </td>
                         <td class="text-right space-x-2">
                             <button wire:click="editExperience({{ $ex->id }})" class="text-primary-300 hover:text-primary-100 text-xs font-semibold transition-all cursor-pointer">
                                 Edit
@@ -150,7 +168,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="4" class="text-center py-8 text-gray-500">No experience logs stored.</td>
+                        <td colspan="5" class="text-center py-8 text-gray-500">No experience logs stored.</td>
                     </tr>
                 @endforelse
             </tbody>

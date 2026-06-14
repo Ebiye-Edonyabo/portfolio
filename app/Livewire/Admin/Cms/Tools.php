@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Admin\Cms;
 
+use App\Enums\Status;
 use App\Livewire\Admin\Cms\Forms\ToolForm;
 use App\Models\Tool;
 use Illuminate\View\View;
@@ -42,6 +43,7 @@ class Tools extends Component
     {
         return view('livewire.admin.cms.tools', [
             'tools' => Tool::orderBy('order')->get(),
+            'statusOptions' => Status::options(),
         ]);
     }
 }

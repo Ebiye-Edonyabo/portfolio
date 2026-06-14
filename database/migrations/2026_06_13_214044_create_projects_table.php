@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('image_path')->nullable();
             $table->string('route_url')->nullable();
             $table->json('technologies')->nullable();
+            $table->string('status')->default('draft');
             $table->timestamps();
         });
     }

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->json('responsibilities')->nullable();
             $table->json('technologies')->nullable();
             $table->json('projects')->nullable();
+            $table->string('status')->default('draft');
             $table->timestamps();
         });
     }

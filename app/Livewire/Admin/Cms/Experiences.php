@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Admin\Cms;
 
+use App\Enums\Status;
 use App\Livewire\Admin\Cms\Forms\ExperienceForm;
 use App\Models\Experience;
 use Illuminate\View\View;
@@ -52,6 +53,7 @@ class Experiences extends Component
     {
         return view('livewire.admin.cms.experiences', [
             'experiences' => Experience::latest()->get(),
+            'statusOptions' => Status::options(),
         ]);
     }
 }

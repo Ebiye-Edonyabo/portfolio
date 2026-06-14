@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Admin\Cms;
 
+use App\Enums\Status;
 use App\Livewire\Admin\Cms\Forms\ProjectForm;
 use App\Models\Project;
 use Illuminate\View\View;
@@ -42,6 +43,7 @@ class Projects extends Component
     {
         return view('livewire.admin.cms.projects', [
             'projects' => Project::latest()->get(),
+            'statusOptions' => Status::options(),
         ]);
     }
 }

@@ -25,6 +25,9 @@ class ProjectForm extends Form
     #[Validate('nullable|string')]
     public string $technologies = '';
 
+    #[Validate('required|string|in:draft,published')]
+    public string $status = 'draft';
+
     /**
      * Load an existing project into the form.
      */
@@ -36,6 +39,7 @@ class ProjectForm extends Form
         $this->image_path = $project->image_path ?? '';
         $this->route_url = $project->route_url ?? '';
         $this->technologies = implode(', ', $project->technologies ?? []);
+        $this->status = $project->status->value;
     }
 
     /**
@@ -55,6 +59,7 @@ class ProjectForm extends Form
                 'image_path' => $this->image_path ?: null,
                 'route_url' => $this->route_url ?: null,
                 'technologies' => $techArray,
+                'status' => $this->status,
             ]
         );
     }

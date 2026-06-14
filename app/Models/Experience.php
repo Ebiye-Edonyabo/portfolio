@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Status;
 use Illuminate\Database\Eloquent\Model;
 
 class Experience extends Model
@@ -16,6 +17,7 @@ class Experience extends Model
         'responsibilities',
         'technologies',
         'projects',
+        'status',
     ];
 
     protected function casts(): array
@@ -24,6 +26,7 @@ class Experience extends Model
             'responsibilities' => 'array',
             'technologies' => 'array',
             'projects' => 'array',
+            'status' => Status::class,
         ];
     }
 }

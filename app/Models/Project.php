@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Status;
 use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
@@ -12,12 +13,14 @@ class Project extends Model
         'image_path',
         'route_url',
         'technologies',
+        'status',
     ];
 
     protected function casts(): array
     {
         return [
             'technologies' => 'array',
+            'status' => Status::class,
         ];
     }
 }

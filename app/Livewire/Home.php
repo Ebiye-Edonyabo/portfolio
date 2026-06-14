@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Enums\Status;
 use App\Models\Experience;
 use App\Models\Project;
 use App\Models\Setting;
@@ -15,9 +16,9 @@ class Home extends Component
     {
         return view('livewire.home', [
             'settings' => Setting::where('page', 'home')->pluck('value', 'key'),
-            'tools' => Tool::orderBy('order')->get(),
-            'projects' => Project::all(),
-            'experiences' => Experience::all(),
+            'tools' => Tool::where('status', Status::Published)->orderBy('order')->get(),
+            'projects' => Project::where('status', Status::Published)->get(),
+            'experiences' => Experience::where('status', Status::Published)->get(),
         ]);
     }
 }

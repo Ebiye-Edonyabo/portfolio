@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Enums\Status;
 use App\Models\Experience;
 use App\Models\Project;
 use App\Models\Setting;
@@ -71,6 +72,7 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($tools as $tool) {
+            $tool['status'] = Status::Published;
             Tool::create($tool);
         }
 
@@ -114,6 +116,7 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($projects as $project) {
+            $project['status'] = Status::Published;
             Project::create($project);
         }
 
@@ -184,6 +187,7 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($experiences as $experience) {
+            $experience['status'] = Status::Published;
             Experience::create($experience);
         }
     }
