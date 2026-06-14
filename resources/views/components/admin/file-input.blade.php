@@ -26,7 +26,7 @@
 @if ($file)
     <div class="mt-2 p-2 bg-[#171717] rounded-lg border border-[#1f1f1f] w-fit">
         <span class="text-[10px] text-gray-400 block mb-1">Temporary Upload:</span>
-        <span class="text-xs text-white font-mono font-semibold">{{ $file->getClientOriginalName() }}</span>
+        <img src="{{ $file->temporaryUrl() }}" class="{{ $previewClass }}">
     </div>
 @elseif ($existing)
     <div class="mt-2 p-2 bg-[#171717] rounded-lg border border-[#1f1f1f] w-fit">
