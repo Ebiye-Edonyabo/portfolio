@@ -3,10 +3,8 @@
     <!-- Logo / Brand Header -->
     <div class="h-15 border-b border-[#1f1f1f] flex items-center justify-between px-6">
         <div class="flex items-center gap-3">
-            <div class="w-6 h-6 rounded bg-primary-300 flex items-center justify-center text-[#0a0a0a] font-bold text-sm">
-                Æ
-            </div>
-            <span class="text-white font-semibold text-base tracking-tight">Ares Admin</span>
+            <img src="{{ asset('images/logo_new1.png') }}" class="h-6 w-auto" alt="Logo">
+            <span class="text-white font-semibold text-base tracking-tight">Ebiye-Edonyabo</span>
         </div>
         <!-- Mobile Close Button -->
         <button @click="sidebarOpen = false" class="lg:hidden text-gray-400 hover:text-white cursor-pointer transition-colors p-1" type="button">

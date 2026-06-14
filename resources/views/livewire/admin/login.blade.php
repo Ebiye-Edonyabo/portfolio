@@ -2,11 +2,9 @@
     <div class="w-full max-w-md bg-[#121212]/90 backdrop-blur-md border border-[#1f1f1f] p-8 rounded-xl shadow-2xl relative">
         <!-- Brand / Identity Header -->
         <div class="text-center mb-8">
-            <div class="w-12 h-12 rounded-lg bg-[#1e2d0a] flex items-center justify-center text-primary-300 font-bold text-xl mx-auto mb-3 border border-primary-500/30">
-                Æ
-            </div>
+            <img src="{{ asset('images/logo_new1.png') }}" class="h-12 w-auto mx-auto mb-3" alt="Brand Logo">
             <h1 class="text-2xl font-bold text-white tracking-tight">Welcome back</h1>
-            <p class="text-sm text-gray-400 mt-1">Access the Ares Admin dashboard</p>
+            <p class="text-sm text-gray-400 mt-1">Access the Admin dashboard</p>
         </div>
 
         <!-- Login Form -->
