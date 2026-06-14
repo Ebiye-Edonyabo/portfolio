@@ -2,7 +2,7 @@
     <!-- 4 Column Stats row -->
     <div class="dashboard-grid gap-6 mb-8">
         <!-- Messages Count -->
-        <div class="stat-card">
+        <div class="stat-card col-span-12 sm:col-span-6 lg:col-span-3">
             <div class="flex items-center justify-between">
                 <span class="text-xs font-semibold uppercase tracking-wider text-gray-400">Total Messages</span>
                 <div class="w-7 h-7 rounded bg-[#1e2d0a] flex items-center justify-center">
@@ -12,7 +12,7 @@
             <div class="stat-card__value">{{ $messagesCount }}</div>
         </div>
         <!-- Projects Count -->
-        <div class="stat-card">
+        <div class="stat-card col-span-12 sm:col-span-6 lg:col-span-3">
             <div class="flex items-center justify-between">
                 <span class="text-xs font-semibold uppercase tracking-wider text-gray-400">Projects Published</span>
                 <div class="w-7 h-7 rounded bg-[#1e2d0a] flex items-center justify-center">
@@ -22,7 +22,7 @@
             <div class="stat-card__value">{{ $projectsCount }}</div>
         </div>
         <!-- Tools Count -->
-        <div class="stat-card">
+        <div class="stat-card col-span-12 sm:col-span-6 lg:col-span-3">
             <div class="flex items-center justify-between">
                 <span class="text-xs font-semibold uppercase tracking-wider text-gray-400">Tools Cataloged</span>
                 <div class="w-7 h-7 rounded bg-[#1e2d0a] flex items-center justify-center">
@@ -32,7 +32,7 @@
             <div class="stat-card__value">{{ $toolsCount }}</div>
         </div>
         <!-- Experiences Count -->
-        <div class="stat-card">
+        <div class="stat-card col-span-12 sm:col-span-6 lg:col-span-3">
             <div class="flex items-center justify-between">
                 <span class="text-xs font-semibold uppercase tracking-wider text-gray-400">Experiences</span>
                 <div class="w-7 h-7 rounded bg-[#1e2d0a] flex items-center justify-center">

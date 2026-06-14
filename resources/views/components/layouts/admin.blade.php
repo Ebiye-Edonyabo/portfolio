@@ -18,19 +18,28 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @livewireStyles
     </head>
-    <body class="bg-dotted min-h-screen text-gray-300 antialiased font-sans">
+    <body class="bg-dotted min-h-screen text-gray-300 antialiased font-sans" x-data="{ sidebarOpen: false }">
         @auth
-            <div class="flex h-screen overflow-hidden bg-dotted">
+            <div class="flex h-screen overflow-hidden bg-dotted relative">
+                <!-- Mobile Sidebar Backdrop Overlay -->
+                <div x-show="sidebarOpen" @click="sidebarOpen = false" class="fixed inset-0 bg-black/60 z-30 lg:hidden" x-cloak></div>
+
                 <!-- 1. Sidebar -->
                 <x-admin.sidebar />
 
                 <!-- 2. Main Content Wrapper -->
-                <div class="flex-1 pl-65 flex flex-col h-full overflow-hidden">
+                <div class="flex-1 lg:pl-65 pl-0 flex flex-col h-full overflow-hidden">
                     <!-- Top Bar -->
                     <header class="topbar h-15 border-b border-[#1f1f1f] bg-[#0d0d0d] flex items-center justify-between px-8 z-20">
-                        <h2 class="text-sm font-semibold text-white uppercase tracking-wider">
-                            {{ $title ?? 'Admin Dashboard' }}
-                        </h2>
+                        <div class="flex items-center gap-3">
+                            <!-- Hamburger Icon for Mobile Menu -->
+                            <button @click="sidebarOpen = !sidebarOpen" class="lg:hidden text-white cursor-pointer hover:text-primary-300 transition-colors p-1" type="button">
+                                <i class="fa-solid fa-bars text-lg"></i>
+                            </button>
+                            <h2 class="text-sm font-semibold text-white uppercase tracking-wider">
+                                {{ $title ?? 'Admin Dashboard' }}
+                            </h2>
+                        </div>
                         <div class="flex items-center gap-3">
                             <span class="text-xs text-gray-400">Welcome, {{ Auth::user()->name }}</span>
                             <div class="w-8 h-8 rounded-full border border-primary-500 bg-primary-500/10 flex items-center justify-center text-primary-300 font-bold text-xs">

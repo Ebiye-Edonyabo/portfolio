@@ -1,6 +1,6 @@
 <div class="dashboard-grid gap-6">
     <!-- Left: Form -->
-    <div class="col-span-4 bg-[#121212] border border-[#1f1f1f] rounded-xl p-6 h-fit">
+    <div class="col-span-12 lg:col-span-4 bg-[#121212] border border-[#1f1f1f] rounded-xl p-6 h-fit">
         <h4 class="text-xs font-semibold uppercase tracking-wider text-white mb-4 border-b border-[#1f1f1f] pb-2">
             {{ $form->id ? 'Edit Experience Log' : 'Add Experience' }}
         </h4>
@@ -136,7 +136,7 @@
     </div>
 
     <!-- Right: Listing -->
-    <div class="col-span-8 table-container">
+    <div class="col-span-12 lg:col-span-8 table-container">
         <div class="px-6 py-4 border-b border-[#1f1f1f]">
             <h3 class="text-xs font-bold text-white tracking-wide uppercase">Experience Timeline Log</h3>
         </div>
