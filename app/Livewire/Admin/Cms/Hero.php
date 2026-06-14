@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Livewire\Admin;
+namespace App\Livewire\Admin\Cms;
 
-use App\Livewire\Admin\Forms\HeroForm;
+use App\Livewire\Admin\Cms\Forms\HeroForm;
 use Illuminate\View\View;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
@@ -26,6 +26,6 @@ class Hero extends Component
     #[Layout('components.layouts.admin', ['title' => 'CMS / Hero Editor'])]
     public function render(): View
     {
-        return view('livewire.admin.hero');
+        return view('livewire.admin.cms.hero');
     }
 }

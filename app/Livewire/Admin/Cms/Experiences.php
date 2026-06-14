@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Livewire\Admin;
+namespace App\Livewire\Admin\Cms;
 
-use App\Livewire\Admin\Forms\ExperienceForm;
+use App\Livewire\Admin\Cms\Forms\ExperienceForm;
 use App\Models\Experience;
 use Illuminate\View\View;
 use Livewire\Attributes\Layout;
@@ -50,7 +50,7 @@ class Experiences extends Component
     #[Layout('components.layouts.admin', ['title' => 'CMS / Experience Timeline'])]
     public function render(): View
     {
-        return view('livewire.admin.experiences', [
+        return view('livewire.admin.cms.experiences', [
             'experiences' => Experience::latest()->get(),
         ]);
     }

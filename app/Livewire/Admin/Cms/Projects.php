@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Livewire\Admin;
+namespace App\Livewire\Admin\Cms;
 
-use App\Livewire\Admin\Forms\ProjectForm;
+use App\Livewire\Admin\Cms\Forms\ProjectForm;
 use App\Models\Project;
 use Illuminate\View\View;
 use Livewire\Attributes\Layout;
@@ -40,7 +40,7 @@ class Projects extends Component
     #[Layout('components.layouts.admin', ['title' => 'CMS / Projects CRUD'])]
     public function render(): View
     {
-        return view('livewire.admin.projects', [
+        return view('livewire.admin.cms.projects', [
             'projects' => Project::latest()->get(),
         ]);
     }

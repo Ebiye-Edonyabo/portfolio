@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Livewire\Admin;
+namespace App\Livewire\Admin\Cms;
 
-use App\Livewire\Admin\Forms\ToolForm;
+use App\Livewire\Admin\Cms\Forms\ToolForm;
 use App\Models\Tool;
 use Illuminate\View\View;
 use Livewire\Attributes\Layout;
@@ -40,7 +40,7 @@ class Tools extends Component
     #[Layout('components.layouts.admin', ['title' => 'CMS / Tools Manager'])]
     public function render(): View
     {
-        return view('livewire.admin.tools', [
+        return view('livewire.admin.cms.tools', [
             'tools' => Tool::orderBy('order')->get(),
         ]);
     }
