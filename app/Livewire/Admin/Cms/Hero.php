@@ -6,9 +6,12 @@ use App\Livewire\Admin\Cms\Forms\HeroForm;
 use Illuminate\View\View;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Hero extends Component
 {
+    use WithFileUploads;
+
     public HeroForm $form;
 
     public function mount(): void

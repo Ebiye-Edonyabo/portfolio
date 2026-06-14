@@ -8,9 +8,12 @@ use App\Models\Project;
 use Illuminate\View\View;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Projects extends Component
 {
+    use WithFileUploads;
+
     public ProjectForm $form;
 
     public function editProject(int $id): void

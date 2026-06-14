@@ -8,9 +8,12 @@ use App\Models\Tool;
 use Illuminate\View\View;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Tools extends Component
 {
+    use WithFileUploads;
+
     public ToolForm $form;
 
     public function editTool(int $id): void

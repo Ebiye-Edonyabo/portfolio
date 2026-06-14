@@ -3,25 +3,33 @@
 namespace App\Livewire\Admin\Cms\Forms;
 
 use App\Models\Setting;
-use Livewire\Attributes\Validate;
 use Livewire\Form;
 
 class HeroForm extends Form
 {
-    #[Validate('required|string')]
     public string $hello = '';
 
-    #[Validate('required|string')]
     public string $title = '';
 
-    #[Validate('required|string')]
     public string $description = '';
 
-    #[Validate('required|string')]
     public string $available = 'true';
 
-    #[Validate('required|string')]
     public string $image_path = '';
+
+    public $image_file = null;
+
+    public function rules(): array
+    {
+        return [
+            'hello' => 'required|string',
+            'title' => 'required|string',
+            'description' => 'required|string',
+            'available' => 'required|string',
+            'image_path' => $this->image_file ? 'nullable|string' : 'required|string',
+            'image_file' => 'nullable|image|max:2048',
+        ];
+    }
 
     /**
      * Load settings from the database and populate properties.
@@ -35,6 +43,7 @@ class HeroForm extends Form
         $this->description = $settings['description'] ?? '';
         $this->available = $settings['available'] ?? 'true';
         $this->image_path = $settings['image_path'] ?? 'images/bg-remove.png';
+        $this->image_file = null;
     }
 
     /**
@@ -43,6 +52,11 @@ class HeroForm extends Form
     public function save(): void
     {
         $this->validate();
+
+        if ($this->image_file) {
+            $path = $this->image_file->store('hero', 'public');
+            $this->image_path = 'storage/'.$path;
+        }
 
         Setting::updateOrCreate(['group' => 'hero', 'page' => 'home', 'key' => 'hello'], ['value' => $this->hello]);
         Setting::updateOrCreate(['group' => 'hero', 'page' => 'home', 'key' => 'title'], ['value' => $this->title]);

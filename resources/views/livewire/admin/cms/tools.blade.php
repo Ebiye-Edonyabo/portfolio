@@ -8,8 +8,29 @@
             <!-- Name -->
             <x-admin.text-input label="Tool Name" model="form.name" required />
 
-            <!-- Logo Path -->
-            <x-admin.text-input label="Logo SVG Path" model="form.logo_path" required placeholder="icons/Laravel.svg" />
+            <!-- Logo Path & Upload -->
+            <div class="space-y-2">
+                <x-admin.text-input label="Logo SVG Path (Manual)" model="form.logo_path" placeholder="icons/Laravel.svg" />
+                
+                <div class="space-y-1">
+                    <label class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider block">Or Upload SVG/Image File</label>
+                    <input type="file" wire:model="form.logo_file" accept=".svg,.png,.jpg,.jpeg,.webp"
+                        class="w-full bg-[#171717] border border-[#1f1f1f] text-white px-3 py-1.5 rounded-lg text-xs outline-none focus:border-primary-300 file:mr-4 file:py-1 file:px-2 file:rounded-md file:border-0 file:text-[11px] file:font-semibold file:bg-[#1e2d0a] file:text-primary-300 hover:file:bg-[#1e2d0a]/80 transition-all cursor-pointer">
+                    @error('form.logo_file') <span class="text-red-400 text-xs block mt-1">{{ $message }}</span> @enderror
+                </div>
+
+                @if ($form->logo_file)
+                    <div class="mt-2 p-2 bg-[#171717] rounded-lg border border-[#1f1f1f] w-fit">
+                        <span class="text-[10px] text-gray-400 block mb-1">Temporary Upload:</span>
+                        <span class="text-xs text-white font-mono font-semibold">{{ $form->logo_file->getClientOriginalName() }}</span>
+                    </div>
+                @elseif ($form->logo_path)
+                    <div class="mt-2 p-2 bg-[#171717] rounded-lg border border-[#1f1f1f] w-fit">
+                        <span class="text-[10px] text-gray-400 block mb-1">Current Logo:</span>
+                        <img src="{{ asset($form->logo_path) }}" class="h-8 object-contain">
+                    </div>
+                @endif
+            </div>
 
             <!-- Order -->
             <x-admin.text-input label="Display Order" model="form.order" type="number" required />

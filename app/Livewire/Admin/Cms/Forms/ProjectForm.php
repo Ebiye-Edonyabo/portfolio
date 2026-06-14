@@ -3,30 +3,38 @@
 namespace App\Livewire\Admin\Cms\Forms;
 
 use App\Models\Project;
-use Livewire\Attributes\Validate;
 use Livewire\Form;
 
 class ProjectForm extends Form
 {
     public ?int $id = null;
 
-    #[Validate('required|string')]
     public string $title = '';
 
-    #[Validate('required|string')]
     public string $description = '';
 
-    #[Validate('nullable|string')]
     public string $image_path = '';
 
-    #[Validate('nullable|string')]
+    public $image_file = null;
+
     public string $route_url = '';
 
-    #[Validate('nullable|string')]
     public string $technologies = '';
 
-    #[Validate('required|string|in:draft,published')]
     public string $status = 'draft';
+
+    public function rules(): array
+    {
+        return [
+            'title' => 'required|string',
+            'description' => 'required|string',
+            'image_path' => 'nullable|string',
+            'image_file' => 'nullable|image|max:2048',
+            'route_url' => 'nullable|url',
+            'technologies' => 'nullable|string',
+            'status' => 'required|string|in:draft,published',
+        ];
+    }
 
     /**
      * Load an existing project into the form.
@@ -40,6 +48,7 @@ class ProjectForm extends Form
         $this->route_url = $project->route_url ?? '';
         $this->technologies = implode(', ', $project->technologies ?? []);
         $this->status = $project->status->value;
+        $this->image_file = null;
     }
 
     /**
@@ -48,6 +57,11 @@ class ProjectForm extends Form
     public function save(): void
     {
         $this->validate();
+
+        if ($this->image_file) {
+            $path = $this->image_file->store('projects', 'public');
+            $this->image_path = 'storage/'.$path;
+        }
 
         $techArray = array_filter(array_map('trim', explode(',', $this->technologies)));
 

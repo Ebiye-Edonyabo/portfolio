@@ -17,8 +17,10 @@ use App\Models\Setting;
 use App\Models\Tool as ToolModel;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Livewire;
 use Tests\TestCase;
 
@@ -409,5 +411,79 @@ class AdminDashboardTest extends TestCase
             ->assertRedirect(route('login'));
 
         $this->assertGuest();
+    }
+
+    public function test_admin_can_upload_tool_logo(): void
+    {
+        $user = User::factory()->create();
+        $file = UploadedFile::fake()->image('logo.png');
+        Storage::fake('public');
+
+        Livewire::actingAs($user)
+            ->test(Tools::class)
+            ->set('form.name', 'React Uploaded')
+            ->set('form.logo_file', $file)
+            ->set('form.order', 12)
+            ->set('form.status', 'published')
+            ->call('saveTool')
+            ->assertDispatched('notification', message: 'Tool saved successfully!');
+
+        $tool = ToolModel::where('name', 'React Uploaded')->first();
+        $this->assertNotNull($tool);
+        $this->assertStringStartsWith('storage/logos/', $tool->logo_path);
+
+        $diskPath = str_replace('storage/', '', $tool->logo_path);
+        Storage::disk('public')->assertExists($diskPath);
+    }
+
+    public function test_admin_can_upload_project_image(): void
+    {
+        $user = User::factory()->create();
+        $file = UploadedFile::fake()->image('project.png');
+        Storage::fake('public');
+
+        Livewire::actingAs($user)
+            ->test(Projects::class)
+            ->set('form.title', 'Uploaded Project')
+            ->set('form.description', 'Project details description')
+            ->set('form.image_file', $file)
+            ->set('form.route_url', 'https://uploaded.com')
+            ->set('form.technologies', 'PHP, Livewire')
+            ->set('form.status', 'published')
+            ->call('saveProject')
+            ->assertDispatched('notification', message: 'Project saved successfully!');
+
+        $project = ProjectModel::where('title', 'Uploaded Project')->first();
+        $this->assertNotNull($project);
+        $this->assertStringStartsWith('storage/projects/', $project->image_path);
+
+        $diskPath = str_replace('storage/', '', $project->image_path);
+        Storage::disk('public')->assertExists($diskPath);
+    }
+
+    public function test_admin_can_upload_hero_image(): void
+    {
+        $user = User::factory()->create();
+        $file = UploadedFile::fake()->image('hero.png');
+        Storage::fake('public');
+
+        Setting::updateOrCreate(['group' => 'hero', 'page' => 'home', 'key' => 'hello'], ['value' => 'Old Hello']);
+
+        Livewire::actingAs($user)
+            ->test(Hero::class)
+            ->set('form.hello', 'Hello there')
+            ->set('form.title', 'Developer')
+            ->set('form.image_file', $file)
+            ->set('form.description', 'My bio description')
+            ->set('form.available', 'true')
+            ->call('saveHero')
+            ->assertDispatched('notification', message: 'Hero settings updated successfully!');
+
+        $setting = Setting::where('group', 'hero')->where('page', 'home')->where('key', 'image_path')->first();
+        $this->assertNotNull($setting);
+        $this->assertStringStartsWith('storage/hero/', $setting->value);
+
+        $diskPath = str_replace('storage/', '', $setting->value);
+        Storage::disk('public')->assertExists($diskPath);
     }
 }
