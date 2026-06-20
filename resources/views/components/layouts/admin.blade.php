@@ -51,14 +51,7 @@
                     <!-- Main Content Canvas -->
                     <main class="flex-1 p-8 overflow-y-auto">
                         <!-- Global Flash Notification -->
-                        <div x-data="{ show: false, message: '' }"
-                             x-on:notification.window="show = true; message = $event.detail.message; setTimeout(() => show = false, 3000)"
-                             x-show="show" x-cloak
-                             class="fixed bottom-5 right-5 z-50 p-4 bg-[#1e2d0a] border border-primary-300 rounded-lg text-primary-100 text-xs font-semibold shadow-2xl transition-all"
-                             style="display: none;">
-                             <i class="fa-solid fa-circle-check text-primary-300 mr-2"></i>
-                             <span x-text="message"></span>
-                        </div>
+                        <x-admin.toast />
 
                         {{ $slot }}
                     </main>

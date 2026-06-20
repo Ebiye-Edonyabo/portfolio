@@ -1,6 +1,7 @@
 @props([
     'label',
     'model',
+    'live' => false,
 ])
 
 <div class="space-y-1">
@@ -12,7 +13,7 @@
     </label>
 
     <select 
-        wire:model="{{ $model }}" 
+        @if($live) wire:model.live="{{ $model }}" @else wire:model="{{ $model }}" @endif
         id="{{ $model }}"
         {{ $attributes->merge(['class' => 'w-full bg-[#171717] border border-[#1f1f1f] text-white px-3 py-2 rounded-lg text-xs outline-none focus:border-primary-300 transition-all']) }}
     >
