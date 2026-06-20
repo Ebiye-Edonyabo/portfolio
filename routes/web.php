@@ -22,6 +22,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/projects', Projects::class)->name('admin.projects');
     Route::get('/experiences', Experiences::class)->name('admin.experiences');
     Route::get('/messages', Messages::class)->name('admin.messages');
+    Route::get('/transactions', \App\Livewire\Admin\Transactions::class)->name('admin.transactions');
 
     Route::post('/logout', LogoutAction::class)->name('admin.logout');
 });

@@ -57,6 +57,13 @@
             </div>
         </div>
 
+        <!-- Transactions -->
+        <a href="{{ route('admin.transactions') }}"
+            class="w-full flex items-center px-4 py-2.5 rounded-lg border-l-3 text-left gap-3 text-sm font-medium transition-all {{ request()->routeIs('admin.transactions') ? 'border-primary-300 text-white bg-[#1e2d0a]' : 'border-transparent text-gray-300 hover:bg-[#171717] hover:text-white' }}">
+            <i class="fa-solid fa-wallet text-base {{ request()->routeIs('admin.transactions') ? 'text-primary-300' : 'text-gray-400' }}"></i>
+            Transactions
+        </a>
+
         <!-- Messages -->
         <a href="{{ route('admin.messages') }}"
             class="w-full flex items-center px-4 py-2.5 rounded-lg border-l-3 text-left gap-3 text-sm font-medium transition-all {{ request()->routeIs('admin.messages') ? 'border-primary-300 text-white bg-[#1e2d0a]' : 'border-transparent text-gray-300 hover:bg-[#171717] hover:text-white' }}">
