@@ -109,7 +109,7 @@
                     <td> {{ ucwords($transaction->type->value) }}</td>
                     <td>{{ $transaction->category->label() }}</td>
                     <td>
-                        <div class="min-w-53">
+                        <div class="min-w-65">
                             {{ $transaction->description }}
                         </div>
                     </td>
