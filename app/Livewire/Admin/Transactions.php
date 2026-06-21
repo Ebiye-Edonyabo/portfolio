@@ -77,7 +77,7 @@ class Transactions extends Component
         $this->dispatch('notification', message: 'Transaction deleted successfully.');
     }
 
-    #[Layout('components.layouts.admin', ['title' => 'Transactions & Tracking'])]
+    #[Layout('components.layouts.admin', ['title' => 'Transactions'])]
     public function render(): View
     {
         $transactions = Transaction::latest('date')->latest('id')->paginate(10);
@@ -85,13 +85,13 @@ class Transactions extends Component
         // Calculate Totals
         $totalIncome = Transaction::where('type', TransactionType::Income)->sum('amount');
         $totalExpense = Transaction::where('type', TransactionType::Expense)->sum('amount');
-        $balance = $totalIncome - $totalExpense;
+        // $balance = $totalIncome - $totalExpense;
 
         return view('livewire.admin.transactions', [
             'transactions' => $transactions,
             'totalIncome' => $totalIncome,
             'totalExpense' => $totalExpense,
-            'balance' => $balance,
+            // 'balance' => $balance,
             'transactionTypes' => TransactionType::cases(),
             'expenseCategories' => array_map(fn($c) => ['value' => $c->value, 'label' => $c->label()], TransactionCategory::expenses()),
             'incomeCategories' => array_map(fn($c) => ['value' => $c->value, 'label' => $c->label()], TransactionCategory::incomes()),

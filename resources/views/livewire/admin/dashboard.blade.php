@@ -43,8 +43,8 @@
             <tr>
                 <th>Sender</th>
                 <th>Email</th>
-                <th>Message Payload</th>
-                <th>Received At</th>
+                <th>Body</th>
+                <th class="text-nowrap">Received At</th>
             </tr>
         </thead>
         <tbody>

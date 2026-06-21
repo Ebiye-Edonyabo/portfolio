@@ -26,7 +26,7 @@ class Hero extends Component
         $this->dispatch('notification', message: 'Hero settings updated successfully!');
     }
 
-    #[Layout('components.layouts.admin', ['title' => 'CMS / Hero Editor'])]
+    #[Layout('components.layouts.admin', ['title' => 'CMS / Hero'])]
     public function render(): View
     {
         return view('livewire.admin.cms.hero');

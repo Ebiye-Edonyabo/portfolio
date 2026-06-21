@@ -17,6 +17,10 @@ enum TransactionCategory: string
 
     case Miscellaneous = 'miscellaneous';
 
+    case Airtime = 'airtime';
+
+    case GasRefill = 'gas-refill';
+
     case Others = 'others';
 
     // incomes
@@ -35,6 +39,8 @@ enum TransactionCategory: string
             self::AISubstription => 'AI Subscription',
             self::InternetData => 'Internet Data',
             self::GiftGiven => 'Gift Given',
+            self::Airtime => 'Airtime',
+            self::GasRefill => 'Gas Refill',
             self::Miscellaneous => 'Miscellaneous',
             self::Others => 'Others',
             self::Salary => 'Salary',
@@ -63,6 +69,8 @@ enum TransactionCategory: string
             self::AISubstription,
             self::InternetData,
             self::GiftGiven,
+            self::Airtime,
+            self::GasRefill,
             self::Miscellaneous,
             self::Others,
         ];

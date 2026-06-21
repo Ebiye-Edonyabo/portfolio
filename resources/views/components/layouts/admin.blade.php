@@ -18,7 +18,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @livewireStyles
     </head>
-    <body class="bg-dotted min-h-screen text-gray-300 antialiased font-sans" x-data="{ sidebarOpen: false }">
+    <body class="bg-dotted min-h-screen text-gray-300 antialiased font-sans" x-data="{ sidebarOpen: false }" x-cloak>
         @auth
             <div class="flex h-screen overflow-hidden bg-dotted relative">
                 <!-- Mobile Sidebar Backdrop Overlay -->
@@ -41,7 +41,7 @@
                             </h2>
                         </div>
                         <div class="flex items-center gap-3">
-                            <span class="text-xs text-gray-400">Welcome, {{ Auth::user()->name }}</span>
+                            <span class="text-xs text-gray-400">{{ Auth::user()->name }}</span>
                             <div class="w-8 h-8 rounded-full border border-primary-500 bg-primary-500/10 flex items-center justify-center text-primary-300 font-bold text-xs">
                                 AD
                             </div>
@@ -49,7 +49,7 @@
                     </header>
 
                     <!-- Main Content Canvas -->
-                    <main class="flex-1 p-8 overflow-y-auto">
+                    <main class="flex-1 px-3 py-8 sm:px-6 lg:px-8 overflow-y-auto">
                         <!-- Global Flash Notification -->
                         <x-admin.toast />
 

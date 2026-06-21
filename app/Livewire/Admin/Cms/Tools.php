@@ -41,7 +41,7 @@ class Tools extends Component
         $this->form->reset();
     }
 
-    #[Layout('components.layouts.admin', ['title' => 'CMS / Tools Manager'])]
+    #[Layout('components.layouts.admin', ['title' => 'CMS / Tools'])]
     public function render(): View
     {
         return view('livewire.admin.cms.tools', [

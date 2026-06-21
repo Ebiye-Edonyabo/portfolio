@@ -12,7 +12,7 @@ use Livewire\Component;
 
 class Dashboard extends Component
 {
-    #[Layout('components.layouts.admin', ['title' => 'Dashboard Overview'])]
+    #[Layout('components.layouts.admin', ['title' => 'Overview'])]
     public function render(): View
     {
         return view('livewire.admin.dashboard', [

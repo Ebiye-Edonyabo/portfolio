@@ -41,7 +41,7 @@ class Projects extends Component
         $this->form->reset();
     }
 
-    #[Layout('components.layouts.admin', ['title' => 'CMS / Projects CRUD'])]
+    #[Layout('components.layouts.admin', ['title' => 'CMS / Projects'])]
     public function render(): View
     {
         return view('livewire.admin.cms.projects', [

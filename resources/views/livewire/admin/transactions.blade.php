@@ -28,12 +28,12 @@
             value="₦{{ number_format($totalExpense, 2) }}" 
             valueColor="text-red-400" 
         />
-        <x-admin.stat-card 
+        {{-- <x-admin.stat-card 
             class="col-span-12 sm:col-span-4" 
             title="Balance" 
             value="₦{{ number_format($balance, 2) }}" 
             valueColor="{{ $balance >= 0 ? 'text-primary-300' : 'text-red-500' }}" 
-        />
+        /> --}}
     </div>
 
 
@@ -75,7 +75,7 @@
                 
                 <div class="flex items-center justify-end gap-3 mt-4">
                     <button type="button" x-on:click="isCreating = false; isEditing = false; $wire.cancelCreate()" class="btn bg-[#171717] hover:bg-[#1f1f1f] text-white">Cancel</button>
-                    <button type="submit" class="btn btn--primary" x-text="isEditing ? 'Update Transaction' : 'Save Transaction'"></button>
+                    <button type="submit" class="btn btn--primary" x-text="isEditing ? 'Update' : 'Save'"></button>
                 </div>
             </form>
         </div>
@@ -87,7 +87,8 @@
                 $wire.showCreateForm()" 
                 class="btn btn--primary text-xs py-1 px-3 flex items-center gap-2" style="display: none;"
             >
-                <i class="fa-solid fa-plus"></i> Add Transaction
+                {{-- <i class="fa-solid fa-plus"></i> --}}
+                Add
             </button>
         </x-slot:actions>
 
@@ -104,7 +105,7 @@
         <tbody>
             @forelse ($transactions as $transaction)
                 <tr wire:key="transaction-{{ $transaction->id }}">
-                    <td>{{ $transaction->date->format('M d, Y') }}</td>
+                    <td class="text-nowrap">{{ $transaction->date->format('M d, Y') }}</td>
                     <td> {{ ucwords($transaction->type->value) }}</td>
                     <td>{{ $transaction->category->label() }}</td>
                     <td>{{ $transaction->description }}</td>

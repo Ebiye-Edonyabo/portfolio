@@ -38,7 +38,7 @@ class Experiences extends Component
         $this->form->reset();
     }
 
-    #[Layout('components.layouts.admin', ['title' => 'CMS / Experience Timeline'])]
+    #[Layout('components.layouts.admin', ['title' => 'CMS / Experience'])]
     public function render(): View
     {
         return view('livewire.admin.cms.experiences', [
