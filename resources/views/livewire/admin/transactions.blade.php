@@ -108,7 +108,11 @@
                     <td class="text-nowrap">{{ $transaction->date->format('M d, Y') }}</td>
                     <td> {{ ucwords($transaction->type->value) }}</td>
                     <td>{{ $transaction->category->label() }}</td>
-                    <td>{{ $transaction->description }}</td>
+                    <td>
+                        <div class="min-w-53">
+                            {{ $transaction->description }}
+                        </div>
+                    </td>
                     <td class="font-medium">₦{{ number_format($transaction->amount, 2) }}</td>
                     <td class="text-right">
                         <button wire:click="editTransaction({{ $transaction->id }})" class="text-primary-300 hover:text-primary-400 transition-colors mr-3" title="Edit">
