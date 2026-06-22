@@ -23,6 +23,9 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/experiences', Experiences::class)->name('admin.experiences');
     Route::get('/messages', Messages::class)->name('admin.messages');
     Route::get('/transactions', \App\Livewire\Admin\Transactions::class)->name('admin.transactions');
+    Route::get('/saving-plans', \App\Livewire\Admin\SavingPlans::class)->name('admin.saving_plans');
+    Route::get('/savings', \App\Livewire\Admin\Savings::class)->name('admin.savings');
+    Route::get('/allocations', \App\Livewire\Admin\Allocations::class)->name('admin.allocations');
 
     Route::post('/logout', LogoutAction::class)->name('admin.logout');
 });

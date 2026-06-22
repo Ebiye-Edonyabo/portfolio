@@ -57,12 +57,41 @@
             </div>
         </div>
 
-        <!-- Transactions -->
-        <a href="{{ route('admin.transactions') }}"
-            class="w-full flex items-center px-4 py-2.5 rounded-lg border-l-3 text-left gap-3 text-sm font-medium transition-all {{ request()->routeIs('admin.transactions') ? 'border-primary-300 text-white bg-[#1e2d0a]' : 'border-transparent text-gray-300 hover:bg-[#171717] hover:text-white' }}">
-            <i class="fa-solid fa-wallet text-base {{ request()->routeIs('admin.transactions') ? 'text-primary-300' : 'text-gray-400' }}"></i>
-            Transactions
-        </a>
+        <!-- Finances Parent (with toggle) -->
+        <div x-data="{ financesOpen: @js(request()->routeIs(['admin.saving_plans', 'admin.savings', 'admin.allocations', 'admin.transactions'])) }">
+            <button @click="financesOpen = !financesOpen" type="button"
+                class="w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-left text-sm font-medium text-gray-300 hover:bg-[#171717] hover:text-white transition-all">
+                <span class="flex items-center gap-3">
+                    <i class="fa-solid fa-wallet text-base text-gray-400"></i>
+                    Finances
+                </span>
+                <i class="fa-solid text-xs text-gray-500 transition-transform duration-200" :class="financesOpen ? 'fa-chevron-down' : 'fa-chevron-right'"></i>
+            </button>
+
+            <!-- Sub-Links -->
+            <div x-show="financesOpen" x-transition x-cloak class="mt-1 ml-4 pl-3 border-l border-[#1f1f1f] space-y-1">
+                <!-- Allocations -->
+                <a href="{{ route('admin.allocations') }}"
+                    class="w-full flex items-center px-3 py-2 rounded-md text-left text-xs font-semibold transition-all {{ request()->routeIs('admin.allocations') ? 'text-primary-300 bg-[#1e2d0a]/50' : 'text-gray-400 hover:text-white hover:bg-[#171717]' }}">
+                    Allocations
+                </a>
+                <!-- Savings -->
+                <a href="{{ route('admin.savings') }}"
+                    class="w-full flex items-center px-3 py-2 rounded-md text-left text-xs font-semibold transition-all {{ request()->routeIs('admin.savings') ? 'text-primary-300 bg-[#1e2d0a]/50' : 'text-gray-400 hover:text-white hover:bg-[#171717]' }}">
+                    Savings
+                </a>
+                <!-- Transactions -->
+                <a href="{{ route('admin.transactions') }}"
+                    class="w-full flex items-center px-3 py-2 rounded-md text-left text-xs font-semibold transition-all {{ request()->routeIs('admin.transactions') ? 'text-primary-300 bg-[#1e2d0a]/50' : 'text-gray-400 hover:text-white hover:bg-[#171717]' }}">
+                    Transactions
+                </a>
+                <!-- Saving Plans -->
+                <a href="{{ route('admin.saving_plans') }}"
+                    class="w-full flex items-center px-3 py-2 rounded-md text-left text-xs font-semibold transition-all {{ request()->routeIs('admin.saving_plans') ? 'text-primary-300 bg-[#1e2d0a]/50' : 'text-gray-400 hover:text-white hover:bg-[#171717]' }}">
+                    Saving Plans
+                </a>
+            </div>
+        </div>
 
         <!-- Messages -->
         <a href="{{ route('admin.messages') }}"
