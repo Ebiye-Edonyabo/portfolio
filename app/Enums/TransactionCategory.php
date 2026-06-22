@@ -9,6 +9,8 @@ enum TransactionCategory: string
 
     case Lifestyle = 'lifestyle';
 
+    case Transport = 'transport';
+
     case AISubstription = 'ai-subscription';
 
     case InternetData = 'internet-data';
@@ -36,6 +38,7 @@ enum TransactionCategory: string
         return match ($this) {
             self::Food => 'Food',
             self::Lifestyle => 'Life Style',
+            self::Transport => 'Transport',
             self::AISubstription => 'AI Subscription',
             self::InternetData => 'Internet Data',
             self::GiftGiven => 'Gift Given',
@@ -66,6 +69,7 @@ enum TransactionCategory: string
         return [
             self::Food,
             self::Lifestyle,
+            self::Transport,
             self::AISubstription,
             self::InternetData,
             self::GiftGiven,
