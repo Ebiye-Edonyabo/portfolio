@@ -80,7 +80,8 @@ class TransactionForm extends Form
         $this->reset(['description', 'amount', 'transaction']);
     }
 
-    protected function formatAmount(){
+    protected function formatAmount()
+    {
         if ($this->amount !== null) {
             $this->amount = preg_replace('/[^0-9.]/', '', (string) $this->amount);
         }

@@ -8,7 +8,7 @@ enum TransactionCategory: string
     case Food = 'food';
 
     case Lifestyle = 'lifestyle';
-    
+
     case AISubstription = 'ai-subscription';
 
     case InternetData = 'internet-data';
@@ -33,7 +33,7 @@ enum TransactionCategory: string
      */
     public function label(): string
     {
-        return match($this) {
+        return match ($this) {
             self::Food => 'Food',
             self::Lifestyle => 'Life Style',
             self::AISubstription => 'AI Subscription',

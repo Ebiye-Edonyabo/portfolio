@@ -8,7 +8,7 @@ enum TransactionType: string
 
     case Expense = 'expense';
 
-      /**
+    /**
      * Get label options for select dropdowns.
      *
      * @return array<int, array{label: string, value: string}>

@@ -18,6 +18,7 @@ class Transactions extends Component
     public TransactionForm $form;
 
     public bool $isCreating = false;
+
     public bool $isEditing = false;
 
     public function mount(): void
@@ -43,7 +44,7 @@ class Transactions extends Component
     {
         $transaction = Transaction::findOrFail($id);
         $this->form->setTransaction($transaction);
-        
+
         $this->isEditing = true;
         $this->isCreating = false;
 
@@ -93,8 +94,8 @@ class Transactions extends Component
             'totalExpense' => $totalExpense,
             // 'balance' => $balance,
             'transactionTypes' => TransactionType::cases(),
-            'expenseCategories' => array_map(fn($c) => ['value' => $c->value, 'label' => $c->label()], TransactionCategory::expenses()),
-            'incomeCategories' => array_map(fn($c) => ['value' => $c->value, 'label' => $c->label()], TransactionCategory::incomes()),
+            'expenseCategories' => array_map(fn ($c) => ['value' => $c->value, 'label' => $c->label()], TransactionCategory::expenses()),
+            'incomeCategories' => array_map(fn ($c) => ['value' => $c->value, 'label' => $c->label()], TransactionCategory::incomes()),
         ]);
     }
 }

@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
-use App\Models\Transaction;
-use App\Enums\TransactionType;
 use App\Enums\TransactionCategory;
+use App\Enums\TransactionType;
+use App\Models\Transaction;
+use Illuminate\Database\Seeder;
 
 class ExpenseSeeder extends Seeder
 {
